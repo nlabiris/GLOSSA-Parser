@@ -411,6 +411,19 @@ public partial class GLOSSABaseListener : IGLOSSAListener {
 	public virtual void ExitExpr_muldiv([NotNull] GLOSSAParser.Expr_muldivContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_or"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpr_or([NotNull] GLOSSAParser.Expr_orContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.expr_or"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpr_or([NotNull] GLOSSAParser.Expr_orContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_power"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -422,6 +435,19 @@ public partial class GLOSSABaseListener : IGLOSSAListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitExpr_power([NotNull] GLOSSAParser.Expr_powerContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_and"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpr_and([NotNull] GLOSSAParser.Expr_andContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.expr_and"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpr_and([NotNull] GLOSSAParser.Expr_andContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_paren"/>.
@@ -461,6 +487,19 @@ public partial class GLOSSABaseListener : IGLOSSAListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitExpr_expressionprimitives([NotNull] GLOSSAParser.Expr_expressionprimitivesContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_unary"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpr_unary([NotNull] GLOSSAParser.Expr_unaryContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.expr_unary"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpr_unary([NotNull] GLOSSAParser.Expr_unaryContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.expr_plusminus"/>.

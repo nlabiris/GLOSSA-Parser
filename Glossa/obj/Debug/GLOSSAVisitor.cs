@@ -263,12 +263,28 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitExpr_muldiv([NotNull] GLOSSAParser.Expr_muldivContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by the <c>expr_or</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpr_or([NotNull] GLOSSAParser.Expr_orContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>expr_power</c>
 	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpr_power([NotNull] GLOSSAParser.Expr_powerContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>expr_and</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpr_and([NotNull] GLOSSAParser.Expr_andContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>expr_paren</c>
@@ -293,6 +309,14 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpr_expressionprimitives([NotNull] GLOSSAParser.Expr_expressionprimitivesContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>expr_unary</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpr_unary([NotNull] GLOSSAParser.Expr_unaryContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>expr_plusminus</c>

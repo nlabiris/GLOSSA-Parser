@@ -407,6 +407,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitExpr_muldiv([NotNull] GLOSSAParser.Expr_muldivContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>expr_or</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpr_or([NotNull] GLOSSAParser.Expr_orContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>expr_or</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpr_or([NotNull] GLOSSAParser.Expr_orContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>expr_power</c>
 	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
 	/// </summary>
@@ -418,6 +431,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpr_power([NotNull] GLOSSAParser.Expr_powerContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>expr_and</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpr_and([NotNull] GLOSSAParser.Expr_andContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>expr_and</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpr_and([NotNull] GLOSSAParser.Expr_andContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>expr_paren</c>
@@ -457,6 +483,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpr_expressionprimitives([NotNull] GLOSSAParser.Expr_expressionprimitivesContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>expr_unary</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpr_unary([NotNull] GLOSSAParser.Expr_unaryContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>expr_unary</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpr_unary([NotNull] GLOSSAParser.Expr_unaryContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>expr_plusminus</c>

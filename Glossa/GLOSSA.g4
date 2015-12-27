@@ -75,9 +75,12 @@ assignment : IDENTIFIER ASSIGNMENT expression	#assign
 
 expression : LPAREN expression RPAREN									#expr_paren
 		   | <assoc=right> expression POWER expression					#expr_power
+		   | op=(PLUS|MINUS|OXI) expression								#expr_unary
 		   | expression op=(MUL|DIV) expression							#expr_muldiv
 		   | expression op=(PLUS|MINUS) expression						#expr_plusminus
 		   | expression op=(EQUALS|NOTEQUALS|LT|GT|LE|GE) expression	#expr_compare
+		   | expression KAI expression									#expr_and
+		   | expression H expression									#expr_or
 		   | IDENTIFIER LPAREN functionarguments? RPAREN				#expr_funcproccall
 		   | expressionprimitives										#expr_expressionprimitives
 		   ;
@@ -145,6 +148,9 @@ DIABASE				: 'диабасе';
 KALESE				: 'йакесе';
 TRUE				: 'акгхгс';
 FALSE				: 'ьеудгс';
+KAI					: 'йаи';
+H					: 'г';
+OXI					: 'ови';
 
 INTEGER : [0-9]+;
 DECIMAL : ([0-9]+'.'[0-9]*)|([0-9]*'.'[0-9]+);
