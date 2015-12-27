@@ -49,10 +49,10 @@ elseif : ALLIOS_AN expression TOTE statementlist	#elseifctrl
 else : ALLIOS statementlist	#elsectrl
 	 ;
 
-dowhileLoop : ARXH_EPANALIPSIS statementlist MEXRIS_OTOU expression		# dowhilectrl
+dowhileloop : ARXH_EPANALIPSIS statementlist MEXRIS_OTOU expression		# dowhilectrl
 			;
 
-whileLoop : OSO expression EPANALABE statementlist TELOS_EPANALIPSIS	# whilectrl
+whileloop : OSO expression EPANALABE statementlist TELOS_EPANALIPSIS	# whilectrl
 		  ;
 
 forloop : GIA IDENTIFIER APO INTEGER MEXRI INTEGER ME_BHMA expression statementlist TELOS_EPANALIPSIS	#forctrl

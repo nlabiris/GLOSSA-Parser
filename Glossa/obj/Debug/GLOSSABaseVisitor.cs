@@ -33,17 +33,6 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IGLOSSAVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.whilectrl"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context) { return VisitChildren(context); }
-
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.stmtlist"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -154,6 +143,17 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	public virtual Result VisitType_logikes([NotNull] GLOSSAParser.Type_logikesContext context) { return VisitChildren(context); }
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.whilectrl"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context) { return VisitChildren(context); }
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.filestart"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -229,6 +229,17 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitStat_expr([NotNull] GLOSSAParser.Stat_exprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhilectrl"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.keyword_kalese"/>.
@@ -484,17 +495,6 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	public virtual Result VisitVardecl([NotNull] GLOSSAParser.VardeclContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhilectrl"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context) { return VisitChildren(context); }
-
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.constdecl_alt1"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -726,7 +726,7 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	public virtual Result VisitElse([NotNull] GLOSSAParser.ElseContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhileLoop"/>.
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhileloop"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -734,10 +734,10 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitDowhileLoop([NotNull] GLOSSAParser.DowhileLoopContext context) { return VisitChildren(context); }
+	public virtual Result VisitDowhileloop([NotNull] GLOSSAParser.DowhileloopContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.whileLoop"/>.
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.whileloop"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -745,7 +745,7 @@ public partial class GLOSSABaseVisitor<Result> : AbstractParseTreeVisitor<Result
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitWhileLoop([NotNull] GLOSSAParser.WhileLoopContext context) { return VisitChildren(context); }
+	public virtual Result VisitWhileloop([NotNull] GLOSSAParser.WhileloopContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.forloop"/>.

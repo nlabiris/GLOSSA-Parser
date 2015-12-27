@@ -44,14 +44,14 @@ public partial class GLOSSAParser : Parser {
 		RULE_file = 0, RULE_program = 1, RULE_statementlist = 2, RULE_statement = 3, 
 		RULE_declarations = 4, RULE_functiondefinition = 5, RULE_proceduredefinition = 6, 
 		RULE_variabledeclarations = 7, RULE_constantdeclarations = 8, RULE_ifcontrol = 9, 
-		RULE_elseif = 10, RULE_else = 11, RULE_dowhileLoop = 12, RULE_whileLoop = 13, 
+		RULE_elseif = 10, RULE_else = 11, RULE_dowhileloop = 12, RULE_whileloop = 13, 
 		RULE_forloop = 14, RULE_switchcontrol = 15, RULE_casescontrol = 16, RULE_otherwisecontrol = 17, 
 		RULE_functionarguments = 18, RULE_assignment = 19, RULE_expression = 20, 
 		RULE_expressionprimitives = 21, RULE_type = 22, RULE_keyword = 23, RULE_bool = 24;
 	public static readonly string[] ruleNames = {
 		"file", "program", "statementlist", "statement", "declarations", "functiondefinition", 
 		"proceduredefinition", "variabledeclarations", "constantdeclarations", 
-		"ifcontrol", "elseif", "else", "dowhileLoop", "whileLoop", "forloop", 
+		"ifcontrol", "elseif", "else", "dowhileloop", "whileloop", "forloop", 
 		"switchcontrol", "casescontrol", "otherwisecontrol", "functionarguments", 
 		"assignment", "expression", "expressionprimitives", "type", "keyword", 
 		"bool"
@@ -1324,19 +1324,19 @@ public partial class GLOSSAParser : Parser {
 		return _localctx;
 	}
 
-	public partial class DowhileLoopContext : ParserRuleContext {
-		public DowhileLoopContext(ParserRuleContext parent, int invokingState)
+	public partial class DowhileloopContext : ParserRuleContext {
+		public DowhileloopContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_dowhileLoop; } }
+		public override int RuleIndex { get { return RULE_dowhileloop; } }
 	 
-		public DowhileLoopContext() { }
-		public virtual void CopyFrom(DowhileLoopContext context) {
+		public DowhileloopContext() { }
+		public virtual void CopyFrom(DowhileloopContext context) {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class DowhilectrlContext : DowhileLoopContext {
+	public partial class DowhilectrlContext : DowhileloopContext {
 		public StatementlistContext statementlist() {
 			return GetRuleContext<StatementlistContext>(0);
 		}
@@ -1345,7 +1345,7 @@ public partial class GLOSSAParser : Parser {
 		public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		public DowhilectrlContext(DowhileLoopContext context) { CopyFrom(context); }
+		public DowhilectrlContext(DowhileloopContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IGLOSSAListener typedListener = listener as IGLOSSAListener;
 			if (typedListener != null) typedListener.EnterDowhilectrl(this);
@@ -1362,9 +1362,9 @@ public partial class GLOSSAParser : Parser {
 	}
 
 	[RuleVersion(0)]
-	public DowhileLoopContext dowhileLoop() {
-		DowhileLoopContext _localctx = new DowhileLoopContext(_ctx, State);
-		EnterRule(_localctx, 24, RULE_dowhileLoop);
+	public DowhileloopContext dowhileloop() {
+		DowhileloopContext _localctx = new DowhileloopContext(_ctx, State);
+		EnterRule(_localctx, 24, RULE_dowhileloop);
 		try {
 			_localctx = new DowhilectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
@@ -1386,19 +1386,19 @@ public partial class GLOSSAParser : Parser {
 		return _localctx;
 	}
 
-	public partial class WhileLoopContext : ParserRuleContext {
-		public WhileLoopContext(ParserRuleContext parent, int invokingState)
+	public partial class WhileloopContext : ParserRuleContext {
+		public WhileloopContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_whileLoop; } }
+		public override int RuleIndex { get { return RULE_whileloop; } }
 	 
-		public WhileLoopContext() { }
-		public virtual void CopyFrom(WhileLoopContext context) {
+		public WhileloopContext() { }
+		public virtual void CopyFrom(WhileloopContext context) {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class WhilectrlContext : WhileLoopContext {
+	public partial class WhilectrlContext : WhileloopContext {
 		public ITerminalNode EPANALABE() { return GetToken(GLOSSAParser.EPANALABE, 0); }
 		public StatementlistContext statementlist() {
 			return GetRuleContext<StatementlistContext>(0);
@@ -1408,7 +1408,7 @@ public partial class GLOSSAParser : Parser {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		public ITerminalNode TELOS_EPANALIPSIS() { return GetToken(GLOSSAParser.TELOS_EPANALIPSIS, 0); }
-		public WhilectrlContext(WhileLoopContext context) { CopyFrom(context); }
+		public WhilectrlContext(WhileloopContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IGLOSSAListener typedListener = listener as IGLOSSAListener;
 			if (typedListener != null) typedListener.EnterWhilectrl(this);
@@ -1425,9 +1425,9 @@ public partial class GLOSSAParser : Parser {
 	}
 
 	[RuleVersion(0)]
-	public WhileLoopContext whileLoop() {
-		WhileLoopContext _localctx = new WhileLoopContext(_ctx, State);
-		EnterRule(_localctx, 26, RULE_whileLoop);
+	public WhileloopContext whileloop() {
+		WhileloopContext _localctx = new WhileloopContext(_ctx, State);
+		EnterRule(_localctx, 26, RULE_whileloop);
 		try {
 			_localctx = new WhilectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);

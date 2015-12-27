@@ -31,14 +31,6 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>whilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.whileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>stmtlist</c>
 	/// labeled alternative in <see cref="GLOSSAParser.statementlist"/>.
 	/// </summary>
@@ -119,6 +111,14 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitType_logikes([NotNull] GLOSSAParser.Type_logikesContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by the <c>whilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.whileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>filestart</c>
 	/// labeled alternative in <see cref="GLOSSAParser.file"/>.
 	/// </summary>
@@ -173,6 +173,14 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitStat_expr([NotNull] GLOSSAParser.Stat_exprContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>dowhilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.dowhileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>keyword_kalese</c>
@@ -359,14 +367,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitVardecl([NotNull] GLOSSAParser.VardeclContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dowhilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.dowhileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>constdecl_alt1</c>
 	/// labeled alternative in <see cref="GLOSSAParser.constantdeclarations"/>.
 	/// </summary>
@@ -523,18 +523,18 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitElse([NotNull] GLOSSAParser.ElseContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhileLoop"/>.
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.dowhileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDowhileLoop([NotNull] GLOSSAParser.DowhileLoopContext context);
+	Result VisitDowhileloop([NotNull] GLOSSAParser.DowhileloopContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.whileLoop"/>.
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.whileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitWhileLoop([NotNull] GLOSSAParser.WhileLoopContext context);
+	Result VisitWhileloop([NotNull] GLOSSAParser.WhileloopContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.forloop"/>.

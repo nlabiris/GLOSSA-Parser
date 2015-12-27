@@ -30,19 +30,6 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IGLOSSAListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>whilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.whileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>whilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.whileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by the <c>stmtlist</c>
 	/// labeled alternative in <see cref="GLOSSAParser.statementlist"/>.
 	/// </summary>
@@ -173,6 +160,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitType_logikes([NotNull] GLOSSAParser.Type_logikesContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>whilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.whileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>whilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.whileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitWhilectrl([NotNull] GLOSSAParser.WhilectrlContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>filestart</c>
 	/// labeled alternative in <see cref="GLOSSAParser.file"/>.
 	/// </summary>
@@ -262,6 +262,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitStat_expr([NotNull] GLOSSAParser.Stat_exprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>dowhilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.dowhileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>dowhilectrl</c>
+	/// labeled alternative in <see cref="GLOSSAParser.dowhileloop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>keyword_kalese</c>
@@ -563,19 +576,6 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitVardecl([NotNull] GLOSSAParser.VardeclContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>dowhilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.dowhileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>dowhilectrl</c>
-	/// labeled alternative in <see cref="GLOSSAParser.dowhileLoop"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by the <c>constdecl_alt1</c>
 	/// labeled alternative in <see cref="GLOSSAParser.constantdeclarations"/>.
 	/// </summary>
@@ -825,26 +825,26 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitElse([NotNull] GLOSSAParser.ElseContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="GLOSSAParser.dowhileLoop"/>.
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.dowhileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDowhileLoop([NotNull] GLOSSAParser.DowhileLoopContext context);
+	void EnterDowhileloop([NotNull] GLOSSAParser.DowhileloopContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="GLOSSAParser.dowhileLoop"/>.
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.dowhileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDowhileLoop([NotNull] GLOSSAParser.DowhileLoopContext context);
+	void ExitDowhileloop([NotNull] GLOSSAParser.DowhileloopContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="GLOSSAParser.whileLoop"/>.
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.whileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterWhileLoop([NotNull] GLOSSAParser.WhileLoopContext context);
+	void EnterWhileloop([NotNull] GLOSSAParser.WhileloopContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="GLOSSAParser.whileLoop"/>.
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.whileloop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitWhileLoop([NotNull] GLOSSAParser.WhileLoopContext context);
+	void ExitWhileloop([NotNull] GLOSSAParser.WhileloopContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.forloop"/>.
