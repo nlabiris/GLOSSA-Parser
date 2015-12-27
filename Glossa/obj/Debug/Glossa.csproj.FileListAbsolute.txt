@@ -1,0 +1,15 @@
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\bin\Debug\Glossa.exe.config
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\bin\Debug\Glossa.exe
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\bin\Debug\Glossa.pdb
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\bin\Debug\Antlr4.Runtime.dll
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\bin\Debug\Antlr4.Runtime.xml
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSALexer.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSAParser.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSAListener.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSABaseListener.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSAVisitor.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLOSSABaseVisitor.cs
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.exe
+c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.pdb
+C:\Users\Sonic\Documents\Visual Studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.csprojResolveAssemblyReference.cache
