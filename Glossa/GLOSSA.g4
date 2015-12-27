@@ -49,11 +49,23 @@ elseif : ALLIOS_AN expression TOTE statementlist	#elseifctrl
 else : ALLIOS statementlist	#elsectrl
 	 ;
 
-//whileLoop : 
+dowhileLoop : ARXH_EPANALIPSIS statementlist MEXRIS_OTOU expression		# dowhilectrl
+			;
 
-//dowhileLoop :
+whileLoop : OSO expression EPANALABE statementlist TELOS_EPANALIPSIS	# whilectrl
+		  ;
 
-//switch :
+forloop : GIA IDENTIFIER APO INTEGER MEXRI INTEGER ME_BHMA expression statementlist TELOS_EPANALIPSIS	#forctrl
+		;
+
+switchcontrol : EPILEKSE IDENTIFIER casescontrol+ otherwisecontrol* TELOS_EPILOGON	#switchctrl
+			  ;
+
+casescontrol : PERIPTOSI expression statementlist	#casectrl
+			;
+
+otherwisecontrol : PERIPTOSI ALLIOS statementlist		#otherwisectrl
+				 ;
 
 functionarguments : IDENTIFIER (COMMA IDENTIFIER)*	#funargs
 				  ;
@@ -97,36 +109,48 @@ bool : TRUE			#bool_true
  * Lexer Rules
  */
 
-PROGRAMMA: 'пяоцяалла';
-ARXH: 'аявг';
-TELOS_PROGRAMMATOS: 'текос_пяоцяаллатос';
-SYNARTHSH: 'сумаятгсг';
-TELOS_SYNARTHSHS: 'текос_сумаятгсгс';
-DIADIKASIA: 'диадийасиа';
-TELOS_DIADIKASIAS: 'текос_диадийасиас';
-METABLHTES: 'летабкгтес';
-STATHERES: 'стахеяес';
-AN: 'ам';
-TOTE: 'тоте';
-TELOS_AN: 'текос_ам';
-ALLIOS_AN: 'аккиыс_ам';
-ALLIOS: 'аккиыс';
-AKERAIES: 'айеяаиес';
-PRAGMATIKES: 'пяацлатийес';
-XARAKTHRES: 'ваяайтгяес';
-LOGIKES: 'коцийес';
-GRAPSE: 'цяаье';
-EKTIPOSE: 'ейтупысе';
-DIABASE: 'диабасе';
-KALESE: 'йакесе';
-TRUE: 'акгхгс';
-FALSE: 'ьеудгс';
+PROGRAMMA			: 'пяоцяалла';
+ARXH				: 'аявг';
+TELOS_PROGRAMMATOS	: 'текос_пяоцяаллатос';
+SYNARTHSH			: 'сумаятгсг';
+TELOS_SYNARTHSHS	: 'текос_сумаятгсгс';
+DIADIKASIA			: 'диадийасиа';
+TELOS_DIADIKASIAS	: 'текос_диадийасиас';
+METABLHTES			: 'летабкгтес';
+STATHERES			: 'стахеяес';
+AN					: 'ам';
+TOTE				: 'тоте';
+TELOS_AN			: 'текос_ам';
+ALLIOS_AN			: 'аккиыс_ам';
+ALLIOS				: 'аккиыс';
+ARXH_EPANALIPSIS	: 'аявг_епамакгьгс';
+MEXRIS_OTOU			: 'левяис_отоу';
+OSO					: 'осо';
+EPANALABE			: 'епамакабе';
+TELOS_EPANALIPSIS	: 'текос_епамакгьгс';
+GIA					: 'циа';
+APO					: 'апо';
+MEXRI				: 'левяи';
+ME_BHMA				: 'ле_бгла';
+EPILEKSE			: 'епикене';
+PERIPTOSI			: 'пеяиптысг';
+TELOS_EPILOGON		: 'текос_епикоцым';
+AKERAIES			: 'айеяаиес';
+PRAGMATIKES			: 'пяацлатийес';
+XARAKTHRES			: 'ваяайтгяес';
+LOGIKES				: 'коцийес';
+GRAPSE				: 'цяаье';
+EKTIPOSE			: 'ейтупысе';
+DIABASE				: 'диабасе';
+KALESE				: 'йакесе';
+TRUE				: 'акгхгс';
+FALSE				: 'ьеудгс';
 
 INTEGER : [0-9]+;
 DECIMAL : ([0-9]+'.'[0-9]*)|([0-9]*'.'[0-9]+);
-STRING : '\'' ~[\n\']* '\''
-  	   | '"' ~[\n\"]* '"'
-	   ;
+STRING	: '\'' ~[\n\']* '\''
+  		| '"' ~[\n\"]* '"'
+		;
 
 IDENTIFIER : NameStartChar NameChar*
 		   ;
@@ -155,27 +179,27 @@ fragment NameStartChar : 'A'..'Z'
 					   | '\uFDF0'..'\uFFFD'
 					   ; // ignores | ['\u10000-'\uEFFFF] ;
 
-EQUALS: '=';
-NOTEQUALS: '<>';
-GT: '>';
-GE: '>=';
-LT: '<';
-LE: '<=';
+EQUALS		: '=';
+NOTEQUALS	: '<>';
+GT			: '>';
+GE			: '>=';
+LT			: '<';
+LE			: '<=';
 
-PLUS : '+';
-MINUS : '-';
-MUL : '*';
-DIV : '/';
-POWER : '^';
-SEMICOLON : ';';
-COMMA : ',';
-ASSIGNMENT : '<-';
-LPAREN : '(';
-RPAREN : ')';
-LBRACKET : '[';
-RBRACKET : ']';
-LANCHOR : '{';
-RANCHOR : '}';
+PLUS		: '+';
+MINUS		: '-';
+MUL			: '*';
+DIV			: '/';
+POWER		: '^';
+SEMICOLON	: ';';
+COMMA		: ',';
+ASSIGNMENT	: '<-';
+LPAREN		: '(';
+RPAREN		: ')';
+LBRACKET	: '[';
+RBRACKET	: ']';
+LANCHOR		: '{';
+RANCHOR		: '}';
 
 COMMENTS : '!' ~[\r\n]* ->skip;
 //SPACES : [ \t]+; ->skip;

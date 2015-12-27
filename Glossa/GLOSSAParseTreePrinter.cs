@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace Glossa {
-    public class GLOSSAParseTreeListener : GLOSSABaseListener {
+    public class GLOSSAParseTreePrinter : GLOSSABaseListener {
         /// <summary>
         /// The stack with the rules that are being stored while traversing the parse tree.
         /// </summary>
@@ -28,7 +27,7 @@ namespace Glossa {
 
         private StreamWriter m_writer;
 
-        public GLOSSAParseTreeListener(string filename) {
+        public GLOSSAParseTreePrinter(string filename) {
             m_writer = new StreamWriter(filename);
         }
 
@@ -364,6 +363,7 @@ namespace Glossa {
                 // Print edge from the parent to the child
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
                     m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "expr_mul_" + m_serialNumber);
                 }
 
@@ -568,7 +568,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PROGRAMMA_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PROGRAMMA_s" + m_serialNumber);
                 }
             }
 
@@ -578,7 +578,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ARXH_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ARXH_s" + m_serialNumber);
                 }
             }
 
@@ -588,7 +588,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_PROGRAMMATOS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_PROGRAMMATOS_s" + m_serialNumber);
                 }
             }
 
@@ -598,7 +598,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SYNARTHSH_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SYNARTHSH_s" + m_serialNumber);
                 }
             }
 
@@ -608,7 +608,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_SYNARTHSHS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_SYNARTHSHS_s" + m_serialNumber);
                 }
             }
 
@@ -618,7 +618,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIADIKASIA_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIADIKASIA_s" + m_serialNumber);
                 }
             }
 
@@ -628,7 +628,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_DIADIKASIAS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_DIADIKASIAS_s" + m_serialNumber);
                 }
             }
 
@@ -638,7 +638,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "METABLHTES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "METABLHTES_s" + m_serialNumber);
                 }
             }
 
@@ -648,7 +648,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "STATHERES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "STATHERES_s" + m_serialNumber);
                 }
             }
 
@@ -658,7 +658,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "AN_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "AN_s" + m_serialNumber);
                 }
             }
 
@@ -668,7 +668,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TOTE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TOTE_s" + m_serialNumber);
                 }
             }
 
@@ -678,7 +678,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_AN_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TELOS_AN_s" + m_serialNumber);
                 }
             }
 
@@ -688,7 +688,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ALLIOS_AN_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ALLIOS_AN_s" + m_serialNumber);
                 }
             }
 
@@ -698,7 +698,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ALLIOS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ALLIOS_s" + m_serialNumber);
                 }
             }
 
@@ -708,7 +708,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "AKERAIES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "AKERAIES_s" + m_serialNumber);
                 }
             }
 
@@ -718,7 +718,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PRAGMATIKES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PRAGMATIKES_s" + m_serialNumber);
                 }
             }
 
@@ -728,7 +728,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "XARAKTHRES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "XARAKTHRES_s" + m_serialNumber);
                 }
             }
 
@@ -738,7 +738,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LOGIKES_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LOGIKES_s" + m_serialNumber);
                 }
             }
 
@@ -748,7 +748,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GRAPSE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GRAPSE_s" + m_serialNumber);
                 }
             }
 
@@ -758,7 +758,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EKTIPOSE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EKTIPOSE_s" + m_serialNumber);
                 }
             }
 
@@ -768,7 +768,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIABASE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIABASE_s" + m_serialNumber);
                 }
             }
 
@@ -778,7 +778,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "KALESE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "KALESE_s" + m_serialNumber);
                 }
             }
 
@@ -788,7 +788,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TRUE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "TRUE_s" + m_serialNumber);
                 }
             }
 
@@ -798,7 +798,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "FALSE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "FALSE_s" + m_serialNumber);
                 }
             }
 
@@ -809,7 +809,7 @@ namespace Glossa {
                     if (m_ruleStack.Count != 0) {
                         m_previousRule = m_ruleStack.Peek();
                         m_writer.WriteLine("node [fillcolor=palegreen];");
-                        m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "IDENTIFIER_" + m_serialNumber);
+                        m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, node.GetText() +  "_IDENTIFIER_s" + m_serialNumber);
                     }
                 }
             }
@@ -819,7 +819,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EQUALS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EQUALS_s" + m_serialNumber);
                 }
             }
 
@@ -828,7 +828,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "NOTEQUALS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "NOTEQUALS_s" + m_serialNumber);
                 }
             }
 
@@ -837,7 +837,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GT_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GT_s" + m_serialNumber);
                 }
             }
 
@@ -846,7 +846,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "GE_s" + m_serialNumber);
                 }
             }
 
@@ -855,7 +855,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LT_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LT_s" + m_serialNumber);
                 }
             }
 
@@ -864,7 +864,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LE_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LE_s" + m_serialNumber);
                 }
             }
 
@@ -873,7 +873,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PLUS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "PLUS_s" + m_serialNumber);
                 }
             }
 
@@ -882,7 +882,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "MINUS_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "MINUS_s" + m_serialNumber);
                 }
             }
 
@@ -891,7 +891,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "MUL_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "MUL_s" + m_serialNumber);
                 }
             }
 
@@ -900,7 +900,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIV_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DIV_s" + m_serialNumber);
                 }
             }
 
@@ -909,7 +909,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "POWER_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "POWER_s" + m_serialNumber);
                 }
             }
 
@@ -918,7 +918,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SEMICOLON_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SEMICOLON_s" + m_serialNumber);
                 }
             }
 
@@ -927,7 +927,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "COMMA_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "COMMA_s" + m_serialNumber);
                 }
             }
 
@@ -936,7 +936,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ASSIGNMENT_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "ASSIGNMENT_s" + m_serialNumber);
                 }
             }
 
@@ -945,7 +945,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LPAREN_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LPAREN_s" + m_serialNumber);
                 }
             }
 
@@ -954,7 +954,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RPAREN_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RPAREN_s" + m_serialNumber);
                 }
             }
 
@@ -963,7 +963,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LBRACKET_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LBRACKET_s" + m_serialNumber);
                 }
             }
 
@@ -972,7 +972,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RBRACKET_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RBRACKET_s" + m_serialNumber);
                 }
             }
 
@@ -981,7 +981,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LANCHOR_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LANCHOR_s" + m_serialNumber);
                 }
             }
 
@@ -990,7 +990,7 @@ namespace Glossa {
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
                     m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RANCHOR_" + m_serialNumber);
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RANCHOR_s" + m_serialNumber);
                 }
             }
             m_keyword = false;
@@ -1154,7 +1154,7 @@ namespace Glossa {
             if (m_ruleStack.Count != 0) {
                 m_previousRule = m_ruleStack.Peek();
                 m_writer.WriteLine("node [fillcolor=palegreen];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "INTEGER_" + m_serialNumber);
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, context.GetText() + "_INTEGER_s" + m_serialNumber);
             }
         }
 
@@ -1163,7 +1163,7 @@ namespace Glossa {
             if (m_ruleStack.Count != 0) {
                 m_previousRule = m_ruleStack.Peek();
                 m_writer.WriteLine("node [fillcolor=palegreen];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "DECIMAL_" + m_serialNumber);
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, context.GetText() + "_DECIMAL_s" + m_serialNumber);
             }
         }
 
@@ -1172,7 +1172,7 @@ namespace Glossa {
             if (m_ruleStack.Count != 0) {
                 m_previousRule = m_ruleStack.Peek();
                 m_writer.WriteLine("node [fillcolor=palegreen];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "STRING_" + m_serialNumber);
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, context.GetText() + "_STRING_s" + m_serialNumber);
             }
         }
     }

@@ -15,7 +15,7 @@ namespace Glossa {
             IParseTree tree = parser.file();
 
             ParseTreeWalker walker = new ParseTreeWalker();
-            GLOSSAParseTreeListener parseTreePrinter = new GLOSSAParseTreeListener("parsetree.dot");
+            GLOSSAParseTreePrinter parseTreePrinter = new GLOSSAParseTreePrinter("parsetree.dot");
             walker.Walk(parseTreePrinter, tree);
 
             parseTreePrinter.CallGraphViz("parsetree.dot", "parsetree.png");

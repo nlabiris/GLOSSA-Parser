@@ -52,7 +52,7 @@
     <Compile Include="GLOSSA.g4.parser.cs">
       <DependentUpon>GLOSSA.g4</DependentUpon>
     </Compile>
-    <Compile Include="GLOSSAParseTreeListener.cs" />
+    <Compile Include="GLOSSAParseTreePrinter.cs" />
     <Compile Include="obj\Debug\GLOSSABaseListener.cs" />
     <Compile Include="obj\Debug\GLOSSABaseVisitor.cs" />
     <Compile Include="obj\Debug\GLOSSALexer.cs" />
@@ -68,9 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>Glossa</CustomToolNamespace>
     </Antlr4>
+    <None Include="bin\Debug\parsetree.dot" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\parsetree.png" />
     <Content Include="bin\Debug\test.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
