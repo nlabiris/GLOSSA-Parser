@@ -225,6 +225,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitStat_ifctrl([NotNull] GLOSSAParser.Stat_ifctrlContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>stat_dowhile</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStat_dowhile([NotNull] GLOSSAParser.Stat_dowhileContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>stat_dowhile</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStat_dowhile([NotNull] GLOSSAParser.Stat_dowhileContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>stat_ioexpr</c>
 	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
 	/// </summary>
@@ -251,6 +264,32 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitStat_assignment([NotNull] GLOSSAParser.Stat_assignmentContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>stat_while</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStat_while([NotNull] GLOSSAParser.Stat_whileContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>stat_while</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStat_while([NotNull] GLOSSAParser.Stat_whileContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>stat_switch</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStat_switch([NotNull] GLOSSAParser.Stat_switchContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>stat_switch</c>
+	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStat_switch([NotNull] GLOSSAParser.Stat_switchContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>stat_expr</c>
 	/// labeled alternative in <see cref="GLOSSAParser.statement"/>.
 	/// </summary>
@@ -275,6 +314,110 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_e</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_e([NotNull] GLOSSAParser.Buildin_eContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_e</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_e([NotNull] GLOSSAParser.Buildin_eContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_hm</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_hm([NotNull] GLOSSAParser.Buildin_hmContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_hm</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_hm([NotNull] GLOSSAParser.Buildin_hmContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_am</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_am([NotNull] GLOSSAParser.Buildin_amContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_am</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_am([NotNull] GLOSSAParser.Buildin_amContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_syn</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_syn([NotNull] GLOSSAParser.Buildin_synContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_syn</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_syn([NotNull] GLOSSAParser.Buildin_synContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_tr</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_tr([NotNull] GLOSSAParser.Buildin_trContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_tr</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_tr([NotNull] GLOSSAParser.Buildin_trContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_log</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_log([NotNull] GLOSSAParser.Buildin_logContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_log</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_log([NotNull] GLOSSAParser.Buildin_logContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_ef</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_ef([NotNull] GLOSSAParser.Buildin_efContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_ef</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_ef([NotNull] GLOSSAParser.Buildin_efContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>buildin_at</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildin_at([NotNull] GLOSSAParser.Buildin_atContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>buildin_at</c>
+	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildin_at([NotNull] GLOSSAParser.Buildin_atContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>keyword_kalese</c>
@@ -457,6 +600,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpr_and([NotNull] GLOSSAParser.Expr_andContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>expr_bifunccall</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpr_bifunccall([NotNull] GLOSSAParser.Expr_bifunccallContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>expr_bifunccall</c>
+	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpr_bifunccall([NotNull] GLOSSAParser.Expr_bifunccallContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>expr_paren</c>
@@ -922,6 +1078,17 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpression([NotNull] GLOSSAParser.ExpressionContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBuildinfunction([NotNull] GLOSSAParser.BuildinfunctionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.buildinfunction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBuildinfunction([NotNull] GLOSSAParser.BuildinfunctionContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.expressionprimitives"/>.

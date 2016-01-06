@@ -21,10 +21,8 @@ namespace Glossa {
         private int m_serialNumber = 0;
 
         /// <summary>
-        /// We check if the terminal element we matched is a reserved word.
+        /// <c>StreamWriter</c> object.
         /// </summary>
-        private bool m_keyword = false;
-
         private StreamWriter m_writer;
 
         public GLOSSAParseTreePrinter(string filename) {
@@ -142,11 +140,50 @@ namespace Glossa {
             if (m_ruleStack.Count != 0) {
                 m_previousRule = m_ruleStack.Peek();
                 m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "stat_forctrl_" + m_serialNumber);
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "stat_ifctrl_" + m_serialNumber);
             }
 
-            m_ruleStack.Push("stat_forctrl_" + m_serialNumber);
-            m_previousRule = "stat_forctrl_" + m_serialNumber;
+            m_ruleStack.Push("stat_ifctrl_" + m_serialNumber);
+            m_previousRule = "stat_ifctrl_" + m_serialNumber;
+        }
+
+        public override void EnterStat_dowhile(GLOSSAParser.Stat_dowhileContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "stat_dowhile_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("stat_dowhile_" + m_serialNumber);
+            m_previousRule = "stat_dowhile_" + m_serialNumber;
+        }
+
+        public override void EnterStat_while(GLOSSAParser.Stat_whileContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "stat_while_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("stat_while_" + m_serialNumber);
+            m_previousRule = "stat_while_" + m_serialNumber;
+        }
+
+        public override void EnterStat_switch(GLOSSAParser.Stat_switchContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "stat_switch_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("stat_switch_" + m_serialNumber);
+            m_previousRule = "stat_switch_" + m_serialNumber;
         }
 
         public override void EnterVardecl(GLOSSAParser.VardeclContext context) {
@@ -305,6 +342,84 @@ namespace Glossa {
             m_previousRule = "elsectrl_" + m_serialNumber;
         }
 
+        public override void EnterDowhilectrl(GLOSSAParser.DowhilectrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "dowhilectrl_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("dowhilectrl_" + m_serialNumber);
+            m_previousRule = "dowhilectrl_" + m_serialNumber;
+        }
+
+        public override void EnterWhilectrl(GLOSSAParser.WhilectrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "whilectrl_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("whilectrl_" + m_serialNumber);
+            m_previousRule = "whilectrl_" + m_serialNumber;
+        }
+
+        public override void EnterForctrl(GLOSSAParser.ForctrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "forctrl_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("forctrl_" + m_serialNumber);
+            m_previousRule = "forctrl_" + m_serialNumber;
+        }
+
+        public override void EnterSwitchctrl(GLOSSAParser.SwitchctrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "switchctrl_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("switchctrl_" + m_serialNumber);
+            m_previousRule = "switchctrl_" + m_serialNumber;
+        }
+
+        public override void EnterCasectrl(GLOSSAParser.CasectrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "casectrl_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("casectrl_" + m_serialNumber);
+            m_previousRule = "casectrl_" + m_serialNumber;
+        }
+
+        public override void EnterOtherwisectrl(GLOSSAParser.OtherwisectrlContext context) {
+            m_serialNumber++;
+            // Print edge from the parent to the child
+            if (m_ruleStack.Count != 0) {
+                m_previousRule = m_ruleStack.Peek();
+                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "otherwise_" + m_serialNumber);
+            }
+
+            m_ruleStack.Push("otherwise_" + m_serialNumber);
+            m_previousRule = "otherwise_" + m_serialNumber;
+        }
+
         public override void EnterFunargs(GLOSSAParser.FunargsContext context) {
             m_serialNumber++;
             // Print edge from the parent to the child
@@ -355,6 +470,43 @@ namespace Glossa {
 
             m_ruleStack.Push("expr_power_" + m_serialNumber);
             m_previousRule = "expr_power_" + m_serialNumber;
+        }
+
+        public override void EnterExpr_unary(GLOSSAParser.Expr_unaryContext context) {
+            if (context.op.Type == GLOSSAParser.PLUS) {
+                m_serialNumber++;
+                // Print edge from the parent to the child
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "exprunary_plus_" + m_serialNumber);
+                }
+
+                m_ruleStack.Push("exprunary_plus_" + m_serialNumber);
+                m_previousRule = "exprunary_plus_" + m_serialNumber;
+            } else if (context.op.Type == GLOSSAParser.MINUS) {
+                m_serialNumber++;
+                // Print edge from the parent to the child
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "exprunary_minus_" + m_serialNumber);
+                }
+
+                m_ruleStack.Push("exprunary_minus_" + m_serialNumber);
+                m_previousRule = "exprunary_minus_" + m_serialNumber;
+            } else if (context.op.Type == GLOSSAParser.OXI) {
+                m_serialNumber++;
+                // Print edge from the parent to the child
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "exprunary_oxi_" + m_serialNumber);
+                }
+
+                m_ruleStack.Push("exprunary_oxi_" + m_serialNumber);
+                m_previousRule = "exprunary_oxi_" + m_serialNumber;
+            }
         }
 
         public override void EnterExpr_muldiv(GLOSSAParser.Expr_muldivContext context) {
@@ -505,65 +657,12 @@ namespace Glossa {
             m_previousRule = "expr_expressionprimitives_" + m_serialNumber;
         }
 
-        public override void EnterExpressionprimitives_int(GLOSSAParser.Expressionprimitives_intContext context) {
-            base.EnterExpressionprimitives_int(context);
-        }
-
-        public override void EnterExpressionprimitives_dec(GLOSSAParser.Expressionprimitives_decContext context) {
-            base.EnterExpressionprimitives_dec(context);
-        }
-
-        public override void EnterExpressionprimitives_string(GLOSSAParser.Expressionprimitives_stringContext context) {
-            base.EnterExpressionprimitives_string(context);
-        }
-
-        public override void EnterExpressionprimitives_identifier(GLOSSAParser.Expressionprimitives_identifierContext context) {
-            base.EnterExpressionprimitives_identifier(context);
-        }
-
-        public override void EnterType_akeraies(GLOSSAParser.Type_akeraiesContext context) {
-            base.EnterType_akeraies(context);
-        }
-
-        public override void EnterType_pragmatikes(GLOSSAParser.Type_pragmatikesContext context) {
-            base.EnterType_pragmatikes(context);
-        }
-
-        public override void EnterType_xaraktires(GLOSSAParser.Type_xaraktiresContext context) {
-            base.EnterType_xaraktires(context);
-        }
-
-        public override void EnterType_logikes(GLOSSAParser.Type_logikesContext context) {
-            base.EnterType_logikes(context);
-        }
-
-        public override void EnterKeyword_grapse(GLOSSAParser.Keyword_grapseContext context) {
-            base.EnterKeyword_grapse(context);
-        }
-
-        public override void EnterKeyword_ektipose(GLOSSAParser.Keyword_ektiposeContext context) {
-            base.EnterKeyword_ektipose(context);
-        }
-
-        public override void EnterKeyword_diabase(GLOSSAParser.Keyword_diabaseContext context) {
-            base.EnterKeyword_diabase(context);
-        }
-
-        public override void EnterKeyword_kalese(GLOSSAParser.Keyword_kaleseContext context) {
-            base.EnterKeyword_kalese(context);
-        }
-
-        public override void EnterBool_true(GLOSSAParser.Bool_trueContext context) {
-            base.EnterBool_true(context);
-        }
-
-        public override void EnterBool_false(GLOSSAParser.Bool_falseContext context) {
-            base.EnterBool_false(context);
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
         public override void VisitTerminal(ITerminalNode node) {
             if (node.Symbol.Type == GLOSSAParser.PROGRAMMA) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -573,7 +672,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.ARXH) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -583,7 +681,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TELOS_PROGRAMMATOS) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -593,7 +690,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.SYNARTHSH) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -603,7 +699,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TELOS_SYNARTHSHS) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -613,7 +708,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.DIADIKASIA) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -623,7 +717,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TELOS_DIADIKASIAS) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -633,7 +726,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.METABLHTES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -643,7 +735,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.STATHERES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -653,7 +744,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.AN) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -663,7 +753,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TOTE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -673,7 +762,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TELOS_AN) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -683,7 +771,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.ALLIOS_AN) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -693,7 +780,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.ALLIOS) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -703,7 +789,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.AKERAIES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -713,7 +798,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.PRAGMATIKES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -723,7 +807,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.XARAKTHRES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -733,7 +816,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.LOGIKES) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -743,7 +825,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.GRAPSE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -753,7 +834,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.EKTIPOSE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -763,7 +843,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.DIABASE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -773,7 +852,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.KALESE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -783,7 +861,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.TRUE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -793,7 +870,6 @@ namespace Glossa {
             }
 
             if (node.Symbol.Type == GLOSSAParser.FALSE) {
-                m_keyword = true;
                 m_serialNumber++;
                 if (m_ruleStack.Count != 0) {
                     m_previousRule = m_ruleStack.Peek();
@@ -802,15 +878,12 @@ namespace Glossa {
                 }
             }
 
-            if (!m_keyword) {
-                if (node.Symbol.Type == GLOSSAParser.IDENTIFIER) {
-                    m_keyword = true;
-                    m_serialNumber++;
-                    if (m_ruleStack.Count != 0) {
-                        m_previousRule = m_ruleStack.Peek();
-                        m_writer.WriteLine("node [fillcolor=palegreen];");
-                        m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, node.GetText() +  "_IDENTIFIER_s" + m_serialNumber);
-                    }
+            if (node.Symbol.Type == GLOSSAParser.IDENTIFIER) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, node.GetText() + "_IDENTIFIER_s" + m_serialNumber);
                 }
             }
 
@@ -993,7 +1066,78 @@ namespace Glossa {
                     m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RANCHOR_s" + m_serialNumber);
                 }
             }
-            m_keyword = false;
+
+            if (node.Symbol.Type == GLOSSAParser.A_M) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "A_M_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.A_T) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "A_T_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.E) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "E_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.EF) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EF_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.HM) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "HM_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.LOG) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LOG_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.SYN) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SYN_s" + m_serialNumber);
+                }
+            }
+
+            if (node.Symbol.Type == GLOSSAParser.T_R) {
+                m_serialNumber++;
+                if (m_ruleStack.Count != 0) {
+                    m_previousRule = m_ruleStack.Peek();
+                    m_writer.WriteLine("node [fillcolor=palegreen];");
+                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "T_R_s" + m_serialNumber);
+                }
+            }
         }
 
 
@@ -1040,6 +1184,21 @@ namespace Glossa {
         }
 
         public override void ExitStat_ifctrl(GLOSSAParser.Stat_ifctrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitStat_dowhile(GLOSSAParser.Stat_dowhileContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitStat_while(GLOSSAParser.Stat_whileContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitStat_switch(GLOSSAParser.Stat_switchContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
@@ -1104,6 +1263,36 @@ namespace Glossa {
             m_previousRule = m_ruleStack.Peek();
         }
 
+        public override void ExitDowhilectrl(GLOSSAParser.DowhilectrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitWhilectrl(GLOSSAParser.WhilectrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitForctrl(GLOSSAParser.ForctrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitSwitchctrl(GLOSSAParser.SwitchctrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitCasectrl(GLOSSAParser.CasectrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitOtherwisectrl(GLOSSAParser.OtherwisectrlContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
         public override void ExitFunargs(GLOSSAParser.FunargsContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
@@ -1120,6 +1309,11 @@ namespace Glossa {
         }
 
         public override void ExitExpr_power(GLOSSAParser.Expr_powerContext context) {
+            m_previousRule = m_ruleStack.Pop();
+            m_previousRule = m_ruleStack.Peek();
+        }
+
+        public override void ExitExpr_unary(GLOSSAParser.Expr_unaryContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }

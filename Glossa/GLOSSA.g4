@@ -17,20 +17,23 @@ statementlist : statement*	#stmtlist
 
 statement : expression								#stat_expr
 		  | assignment								#stat_assignment
-		  | keyword expression (COMMA expression)?	#stat_ioexpr
+		  | keyword expression (COMMA expression)*	#stat_ioexpr
 		  | ifcontrol								#stat_ifctrl
+		  | dowhileloop								#stat_dowhile
+		  | whileloop								#stat_while
+		  | switchcontrol							#stat_switch
 		  ;
 
 declarations : variabledeclarations					#vardecl
 			 | constantdeclarations					#constdecl
 			 ;
 
-functiondefinition : SYNARTHSH IDENTIFIER ('(' IDENTIFIER (','IDENTIFIER)* ')' )? ':' type statementlist TELOS_SYNARTHSHS	#funcdef1
-				   | SYNARTHSH IDENTIFIER ':' type statementlist TELOS_SYNARTHSHS											#funcdef2
+functiondefinition : SYNARTHSH IDENTIFIER functionarguments? ':' type statementlist TELOS_SYNARTHSHS	#funcdef1
+				   | SYNARTHSH IDENTIFIER ':' type statementlist TELOS_SYNARTHSHS						#funcdef2
 				   ;
 
-proceduredefinition : DIADIKASIA IDENTIFIER ('(' IDENTIFIER (','IDENTIFIER)* ')')? statementlist TELOS_DIADIKASIAS			#procdef1
-					| DIADIKASIA IDENTIFIER statementlist TELOS_DIADIKASIAS													#procdef2
+proceduredefinition : DIADIKASIA IDENTIFIER functionarguments? statementlist TELOS_DIADIKASIAS			#procdef1
+					| DIADIKASIA IDENTIFIER statementlist TELOS_DIADIKASIAS								#procdef2
 					;
 
 variabledeclarations : METABLHTES type ':' IDENTIFIER (','IDENTIFIER)*		#vardecl_alt1
@@ -41,7 +44,7 @@ constantdeclarations : STATHERES (IDENTIFIER EQUALS expressionprimitives)+	#cons
 					 ;
 
 ifcontrol : AN expression TOTE statement* elseif* else? TELOS_AN	#ifctrl
-		;
+		  ;
 
 elseif : ALLIOS_AN expression TOTE statementlist	#elseifctrl
 	   ;
@@ -62,9 +65,9 @@ switchcontrol : EPILEKSE IDENTIFIER casescontrol+ otherwisecontrol* TELOS_EPILOG
 			  ;
 
 casescontrol : PERIPTOSI expression statementlist	#casectrl
-			;
+			 ;
 
-otherwisecontrol : PERIPTOSI ALLIOS statementlist		#otherwisectrl
+otherwisecontrol : PERIPTOSI ALLIOS statementlist	#otherwisectrl
 				 ;
 
 functionarguments : IDENTIFIER (COMMA IDENTIFIER)*	#funargs
@@ -81,9 +84,20 @@ expression : LPAREN expression RPAREN									#expr_paren
 		   | expression op=(EQUALS|NOTEQUALS|LT|GT|LE|GE) expression	#expr_compare
 		   | expression KAI expression									#expr_and
 		   | expression H expression									#expr_or
+		   | buildinfunction LPAREN functionarguments? RPAREN			#expr_bifunccall
 		   | IDENTIFIER LPAREN functionarguments? RPAREN				#expr_funcproccall
 		   | expressionprimitives										#expr_expressionprimitives
 		   ;
+
+buildinfunction : A_M	#buildin_am
+				| A_T	#buildin_at
+				| E		#buildin_e
+				| EF	#buildin_ef
+				| HM	#buildin_hm
+				| LOG	#buildin_log
+				| SYN	#buildin_syn
+				| T_R	#buildin_tr
+				;
 
 expressionprimitives : INTEGER		#expressionprimitives_int
 					 | DECIMAL		#expressionprimitives_dec
@@ -151,6 +165,15 @@ FALSE				: 'ьеудгс';
 KAI					: 'йаи';
 H					: 'г';
 OXI					: 'ови';
+
+A_M					: 'а_л';
+A_T					: 'а_т';
+E					: 'е';
+EF					: 'еж';
+HM					: 'гл';
+LOG					: 'коц';
+SYN					: 'сум';
+T_R					: 'т_я';
 
 INTEGER : [0-9]+;
 DECIMAL : ([0-9]+'.'[0-9]*)|([0-9]*'.'[0-9]+);
