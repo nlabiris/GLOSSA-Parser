@@ -207,70 +207,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitDowhilectrl([NotNull] GLOSSAParser.DowhilectrlContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_e</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_e([NotNull] GLOSSAParser.Buildin_eContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_hm</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_hm([NotNull] GLOSSAParser.Buildin_hmContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_am</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_am([NotNull] GLOSSAParser.Buildin_amContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_syn</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_syn([NotNull] GLOSSAParser.Buildin_synContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_tr</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_tr([NotNull] GLOSSAParser.Buildin_trContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_log</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_log([NotNull] GLOSSAParser.Buildin_logContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_ef</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_ef([NotNull] GLOSSAParser.Buildin_efContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>buildin_at</c>
-	/// labeled alternative in <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildin_at([NotNull] GLOSSAParser.Buildin_atContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>keyword_kalese</c>
 	/// labeled alternative in <see cref="GLOSSAParser.keyword"/>.
 	/// </summary>
@@ -327,14 +263,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitProcdef1([NotNull] GLOSSAParser.Procdef1Context context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>procdef2</c>
-	/// labeled alternative in <see cref="GLOSSAParser.proceduredefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitProcdef2([NotNull] GLOSSAParser.Procdef2Context context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>ifctrl</c>
 	/// labeled alternative in <see cref="GLOSSAParser.ifcontrol"/>.
 	/// </summary>
@@ -381,14 +309,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpr_and([NotNull] GLOSSAParser.Expr_andContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>expr_bifunccall</c>
-	/// labeled alternative in <see cref="GLOSSAParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitExpr_bifunccall([NotNull] GLOSSAParser.Expr_bifunccallContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>expr_paren</c>
@@ -477,14 +397,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitFuncdef1([NotNull] GLOSSAParser.Funcdef1Context context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>funcdef2</c>
-	/// labeled alternative in <see cref="GLOSSAParser.functiondefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFuncdef2([NotNull] GLOSSAParser.Funcdef2Context context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>expressionprimitives_string</c>
@@ -675,25 +587,18 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitAssignment([NotNull] GLOSSAParser.AssignmentContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] GLOSSAParser.ExpressionContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.buildinfunction"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBuildinfunction([NotNull] GLOSSAParser.BuildinfunctionContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.expressionprimitives"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpressionprimitives([NotNull] GLOSSAParser.ExpressionprimitivesContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpression([NotNull] GLOSSAParser.ExpressionContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.type"/>.

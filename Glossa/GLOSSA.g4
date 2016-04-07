@@ -29,11 +29,9 @@ declarations : variabledeclarations					#vardecl
 			 ;
 
 functiondefinition : SYNARTHSH IDENTIFIER functionarguments? ':' type statementlist TELOS_SYNARTHSHS	#funcdef1
-				   | SYNARTHSH IDENTIFIER ':' type statementlist TELOS_SYNARTHSHS						#funcdef2
 				   ;
 
 proceduredefinition : DIADIKASIA IDENTIFIER functionarguments? statementlist TELOS_DIADIKASIAS			#procdef1
-					| DIADIKASIA IDENTIFIER statementlist TELOS_DIADIKASIAS								#procdef2
 					;
 
 variabledeclarations : METABLHTES type ':' IDENTIFIER (','IDENTIFIER)*		#vardecl_alt1
@@ -76,6 +74,12 @@ functionarguments : IDENTIFIER (COMMA IDENTIFIER)*	#funargs
 assignment : IDENTIFIER ASSIGNMENT expression	#assign
 		   ;
 
+expressionprimitives : INTEGER		#expressionprimitives_int
+					 | DECIMAL		#expressionprimitives_dec
+					 | STRING		#expressionprimitives_string
+					 | IDENTIFIER	#expressionprimitives_identifier
+					 ;
+
 expression : LPAREN expression RPAREN									#expr_paren
 		   | <assoc=right> expression POWER expression					#expr_power
 		   | op=(PLUS|MINUS|OXI) expression								#expr_unary
@@ -84,26 +88,9 @@ expression : LPAREN expression RPAREN									#expr_paren
 		   | expression op=(EQUALS|NOTEQUALS|LT|GT|LE|GE) expression	#expr_compare
 		   | expression KAI expression									#expr_and
 		   | expression H expression									#expr_or
-		   | buildinfunction LPAREN functionarguments? RPAREN			#expr_bifunccall
 		   | IDENTIFIER LPAREN functionarguments? RPAREN				#expr_funcproccall
 		   | expressionprimitives										#expr_expressionprimitives
 		   ;
-
-buildinfunction : A_M	#buildin_am
-				| A_T	#buildin_at
-				| E		#buildin_e
-				| EF	#buildin_ef
-				| HM	#buildin_hm
-				| LOG	#buildin_log
-				| SYN	#buildin_syn
-				| T_R	#buildin_tr
-				;
-
-expressionprimitives : INTEGER		#expressionprimitives_int
-					 | DECIMAL		#expressionprimitives_dec
-					 | STRING		#expressionprimitives_string
-					 | IDENTIFIER	#expressionprimitives_identifier
-					 ;
 
 type : AKERAIES		#type_akeraies
 	 | PRAGMATIKES	#type_pragmatikes
@@ -166,14 +153,14 @@ KAI					: 'йаи';
 H					: 'г';
 OXI					: 'ови';
 
-A_M					: 'а_л';
-A_T					: 'а_т';
-E					: 'е';
-EF					: 'еж';
-HM					: 'гл';
-LOG					: 'коц';
-SYN					: 'сум';
-T_R					: 'т_я';
+//A_M					: 'а_л';
+//A_T					: 'а_т';
+//E					: 'е';
+//EF					: 'еж';
+//HM					: 'гл';
+//LOG					: 'коц';
+//SYN					: 'сум';
+//T_R					: 'т_я';
 
 INTEGER : [0-9]+;
 DECIMAL : ([0-9]+'.'[0-9]*)|([0-9]*'.'[0-9]+);

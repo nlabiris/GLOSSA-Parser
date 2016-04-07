@@ -224,20 +224,7 @@ namespace Glossa {
             m_ruleStack.Push("funcdef1_" + m_serialNumber);
             m_previousRule = "funcdef1_" + m_serialNumber;
         }
-
-        public override void EnterFuncdef2(GLOSSAParser.Funcdef2Context context) {
-            m_serialNumber++;
-            // Print edge from the parent to the child
-            if (m_ruleStack.Count != 0) {
-                m_previousRule = m_ruleStack.Peek();
-                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "funcdef2_" + m_serialNumber);
-            }
-
-            m_ruleStack.Push("funcdef2_" + m_serialNumber);
-            m_previousRule = "funcdef2_" + m_serialNumber;
-        }
-
+        
         public override void EnterProcdef1(GLOSSAParser.Procdef1Context context) {
             m_serialNumber++;
             // Print edge from the parent to the child
@@ -249,19 +236,6 @@ namespace Glossa {
 
             m_ruleStack.Push("procdef1_" + m_serialNumber);
             m_previousRule = "procdef1_" + m_serialNumber;
-        }
-
-        public override void EnterProcdef2(GLOSSAParser.Procdef2Context context) {
-            m_serialNumber++;
-            // Print edge from the parent to the child
-            if (m_ruleStack.Count != 0) {
-                m_previousRule = m_ruleStack.Peek();
-                m_writer.WriteLine("node [shape=box, style=\"rounded,filled\", color=red, fillcolor=khaki];");
-                m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "procdef2_" + m_serialNumber);
-            }
-
-            m_ruleStack.Push("procdef2_" + m_serialNumber);
-            m_previousRule = "procdef2_" + m_serialNumber;
         }
 
         public override void EnterVardecl_alt1(GLOSSAParser.Vardecl_alt1Context context) {
@@ -1217,18 +1191,8 @@ namespace Glossa {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
-
-        public override void ExitFuncdef2(GLOSSAParser.Funcdef2Context context) {
-            m_previousRule = m_ruleStack.Pop();
-            m_previousRule = m_ruleStack.Peek();
-        }
-
+        
         public override void ExitProcdef1(GLOSSAParser.Procdef1Context context) {
-            m_previousRule = m_ruleStack.Pop();
-            m_previousRule = m_ruleStack.Peek();
-        }
-
-        public override void ExitProcdef2(GLOSSAParser.Procdef2Context context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
