@@ -108,19 +108,6 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitCasectrl([NotNull] GLOSSAParser.CasectrlContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>t</c>
-	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterT([NotNull] GLOSSAParser.TContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>t</c>
-	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitT([NotNull] GLOSSAParser.TContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by the <c>type_pragmatikes</c>
 	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
 	/// </summary>
@@ -970,6 +957,17 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitType([NotNull] GLOSSAParser.TypeContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.functionType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctionType([NotNull] GLOSSAParser.FunctionTypeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.functionType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctionType([NotNull] GLOSSAParser.FunctionTypeContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.keyword"/>.

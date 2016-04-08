@@ -79,14 +79,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitCasectrl([NotNull] GLOSSAParser.CasectrlContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>t</c>
-	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitT([NotNull] GLOSSAParser.TContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>type_pragmatikes</c>
 	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
 	/// </summary>
@@ -614,6 +606,13 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitType([NotNull] GLOSSAParser.TypeContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.functionType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionType([NotNull] GLOSSAParser.FunctionTypeContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.keyword"/>.

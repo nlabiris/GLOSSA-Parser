@@ -12,4 +12,3 @@ c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\GLO
 c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
 c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.exe
 c:\users\sonic\documents\visual studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.pdb
-C:\Users\Sonic\Documents\Visual Studio 2013\Projects\Glossa\Glossa\obj\Debug\Glossa.csprojResolveAssemblyReference.cache

@@ -10,7 +10,7 @@ file : program (functiondefinition | proceduredefinition)*	#filestart
 program : PROGRAMMA IDENTIFIER declarations* ARXH statementlist TELOS_PROGRAMMATOS	#programstart
 		;
 
-functiondefinition : SYNARTHSH IDENTIFIER LPAREN functionarguments? RPAREN ':' type declarations* ARXH statementlist TELOS_SYNARTHSHS	#funcdef
+functiondefinition : SYNARTHSH IDENTIFIER LPAREN functionarguments? RPAREN ':' functionType declarations* ARXH statementlist TELOS_SYNARTHSHS	#funcdef
 				   ;
 
 proceduredefinition : DIADIKASIA IDENTIFIER LPAREN functionarguments? RPAREN declarations* ARXH statementlist TELOS_DIADIKASIAS			#procdef
@@ -96,8 +96,13 @@ type : AKERAIES		#type_akeraies
 	 | PRAGMATIKES	#type_pragmatikes
 	 | XARAKTHRES	#type_xaraktires
 	 | LOGIKES		#type_logikes
-	 | AKERAIA		#t
 	 ;
+
+functionType : AKERAIA
+			 | PRAGMATIKI
+			 | XARAKTHRAS
+			 | LOGIKI
+			 ;
 
 keyword : GRAPSE		#keyword_grapse
 		| EKTIPOSE		#keyword_ektipose
@@ -141,7 +146,11 @@ EPILEKSE			: 'епикене';
 PERIPTOSI			: 'пеяиптысг';
 TELOS_EPILOGON		: 'текос_епикоцым';
 
+// Function types
 AKERAIA				: 'айеяаиа';
+PRAGMATIKI			: 'пяацлатийг';
+XARAKTHRAS			: 'ваяайтгяас';
+LOGIKI				: 'коцийг';
 
 AKERAIES			: 'айеяаиес';
 PRAGMATIKES			: 'пяацлатийес';

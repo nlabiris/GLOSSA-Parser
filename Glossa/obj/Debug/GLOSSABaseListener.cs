@@ -112,19 +112,6 @@ public partial class GLOSSABaseListener : IGLOSSAListener {
 	public virtual void ExitCasectrl([NotNull] GLOSSAParser.CasectrlContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="GLOSSAParser.t"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterT([NotNull] GLOSSAParser.TContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="GLOSSAParser.t"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitT([NotNull] GLOSSAParser.TContext context) { }
-
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.type_pragmatikes"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -1020,6 +1007,19 @@ public partial class GLOSSABaseListener : IGLOSSAListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitType([NotNull] GLOSSAParser.TypeContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.functionType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFunctionType([NotNull] GLOSSAParser.FunctionTypeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.functionType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFunctionType([NotNull] GLOSSAParser.FunctionTypeContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.keyword"/>.
