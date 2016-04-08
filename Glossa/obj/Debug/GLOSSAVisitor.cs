@@ -79,6 +79,14 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitCasectrl([NotNull] GLOSSAParser.CasectrlContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by the <c>t</c>
+	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitT([NotNull] GLOSSAParser.TContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>type_pragmatikes</c>
 	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
 	/// </summary>
@@ -255,12 +263,12 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitVardecl_alt1([NotNull] GLOSSAParser.Vardecl_alt1Context context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>procdef1</c>
+	/// Visit a parse tree produced by the <c>procdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.proceduredefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitProcdef1([NotNull] GLOSSAParser.Procdef1Context context);
+	Result VisitProcdef([NotNull] GLOSSAParser.ProcdefContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>ifctrl</c>
@@ -383,20 +391,20 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitVardecl([NotNull] GLOSSAParser.VardeclContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>constdecl_alt1</c>
+	/// Visit a parse tree produced by the <c>constdecl_alt</c>
 	/// labeled alternative in <see cref="GLOSSAParser.constantdeclarations"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitConstdecl_alt1([NotNull] GLOSSAParser.Constdecl_alt1Context context);
+	Result VisitConstdecl_alt([NotNull] GLOSSAParser.Constdecl_altContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>funcdef1</c>
+	/// Visit a parse tree produced by the <c>funcdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.functiondefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitFuncdef1([NotNull] GLOSSAParser.Funcdef1Context context);
+	Result VisitFuncdef([NotNull] GLOSSAParser.FuncdefContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>expressionprimitives_string</c>
@@ -461,6 +469,20 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitProgram([NotNull] GLOSSAParser.ProgramContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.statementlist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -480,20 +502,6 @@ public interface IGLOSSAVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDeclarations([NotNull] GLOSSAParser.DeclarationsContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="GLOSSAParser.variabledeclarations"/>.

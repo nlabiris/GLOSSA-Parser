@@ -14,11 +14,11 @@ namespace Glossa {
             GLOSSAParser parser = new GLOSSAParser(tokens);
             IParseTree tree = parser.file();
 
-            //ParseTreeWalker walker = new ParseTreeWalker();
-            //GLOSSAParseTreePrinter parseTreePrinter = new GLOSSAParseTreePrinter("parsetree.dot");
-            //walker.Walk(parseTreePrinter, tree);
+            ParseTreeWalker walker = new ParseTreeWalker();
+            GLOSSAParseTreePrinter parseTreePrinter = new GLOSSAParseTreePrinter("parsetree.dot");
+            walker.Walk(parseTreePrinter, tree);
 
-            //parseTreePrinter.CallGraphViz("parsetree.dot", "parsetree.png");
+            parseTreePrinter.CallGraphViz("parsetree.dot", "parsetree.png");
 
             IList<IToken> tokensList = tokens.GetTokens();
             foreach (IToken token in tokensList) {

@@ -33,24 +33,24 @@ public partial class GLOSSAParser : Parser {
 		DIADIKASIA=7, TELOS_DIADIKASIAS=8, METABLHTES=9, STATHERES=10, AN=11, 
 		TOTE=12, TELOS_AN=13, ALLIOS_AN=14, ALLIOS=15, ARXH_EPANALIPSIS=16, MEXRIS_OTOU=17, 
 		OSO=18, EPANALABE=19, TELOS_EPANALIPSIS=20, GIA=21, APO=22, MEXRI=23, 
-		ME_BHMA=24, EPILEKSE=25, PERIPTOSI=26, TELOS_EPILOGON=27, AKERAIES=28, 
-		PRAGMATIKES=29, XARAKTHRES=30, LOGIKES=31, GRAPSE=32, EKTIPOSE=33, DIABASE=34, 
-		KALESE=35, TRUE=36, FALSE=37, KAI=38, H=39, OXI=40, INTEGER=41, DECIMAL=42, 
-		STRING=43, IDENTIFIER=44, EQUALS=45, NOTEQUALS=46, GT=47, GE=48, LT=49, 
-		LE=50, PLUS=51, MINUS=52, MUL=53, DIV=54, POWER=55, SEMICOLON=56, COMMA=57, 
-		ASSIGNMENT=58, LPAREN=59, RPAREN=60, LBRACKET=61, RBRACKET=62, LANCHOR=63, 
-		RANCHOR=64, COMMENTS=65, WS=66;
+		ME_BHMA=24, EPILEKSE=25, PERIPTOSI=26, TELOS_EPILOGON=27, AKERAIA=28, 
+		AKERAIES=29, PRAGMATIKES=30, XARAKTHRES=31, LOGIKES=32, GRAPSE=33, EKTIPOSE=34, 
+		DIABASE=35, KALESE=36, TRUE=37, FALSE=38, KAI=39, H=40, OXI=41, INTEGER=42, 
+		DECIMAL=43, STRING=44, IDENTIFIER=45, EQUALS=46, NOTEQUALS=47, GT=48, 
+		GE=49, LT=50, LE=51, PLUS=52, MINUS=53, MUL=54, DIV=55, POWER=56, SEMICOLON=57, 
+		COMMA=58, ASSIGNMENT=59, LPAREN=60, RPAREN=61, LBRACKET=62, RBRACKET=63, 
+		LANCHOR=64, RANCHOR=65, COMMENTS=66, WS=67;
 	public const int
-		RULE_file = 0, RULE_program = 1, RULE_statementlist = 2, RULE_statement = 3, 
-		RULE_declarations = 4, RULE_functiondefinition = 5, RULE_proceduredefinition = 6, 
-		RULE_variabledeclarations = 7, RULE_constantdeclarations = 8, RULE_ifcontrol = 9, 
-		RULE_elseif = 10, RULE_else = 11, RULE_dowhileloop = 12, RULE_whileloop = 13, 
-		RULE_forloop = 14, RULE_switchcontrol = 15, RULE_casescontrol = 16, RULE_otherwisecontrol = 17, 
-		RULE_functionarguments = 18, RULE_assignment = 19, RULE_expressionprimitives = 20, 
-		RULE_expression = 21, RULE_type = 22, RULE_keyword = 23, RULE_bool = 24;
+		RULE_file = 0, RULE_program = 1, RULE_functiondefinition = 2, RULE_proceduredefinition = 3, 
+		RULE_statementlist = 4, RULE_statement = 5, RULE_declarations = 6, RULE_variabledeclarations = 7, 
+		RULE_constantdeclarations = 8, RULE_ifcontrol = 9, RULE_elseif = 10, RULE_else = 11, 
+		RULE_dowhileloop = 12, RULE_whileloop = 13, RULE_forloop = 14, RULE_switchcontrol = 15, 
+		RULE_casescontrol = 16, RULE_otherwisecontrol = 17, RULE_functionarguments = 18, 
+		RULE_assignment = 19, RULE_expressionprimitives = 20, RULE_expression = 21, 
+		RULE_type = 22, RULE_keyword = 23, RULE_bool = 24;
 	public static readonly string[] ruleNames = {
-		"file", "program", "statementlist", "statement", "declarations", "functiondefinition", 
-		"proceduredefinition", "variabledeclarations", "constantdeclarations", 
+		"file", "program", "functiondefinition", "proceduredefinition", "statementlist", 
+		"statement", "declarations", "variabledeclarations", "constantdeclarations", 
 		"ifcontrol", "elseif", "else", "dowhileloop", "whileloop", "forloop", 
 		"switchcontrol", "casescontrol", "otherwisecontrol", "functionarguments", 
 		"assignment", "expressionprimitives", "expression", "type", "keyword", 
@@ -63,18 +63,18 @@ public partial class GLOSSAParser : Parser {
 		"'стахеяес'", "'ам'", "'тоте'", "'текос_ам'", "'аккиыс_ам'", "'аккиыс'", 
 		"'аявг_епамакгьгс'", "'левяис_отоу'", "'осо'", "'епамакабе'", "'текос_епамакгьгс'", 
 		"'циа'", "'апо'", "'левяи'", "'ле_бгла'", "'епикене'", "'пеяиптысг'", 
-		"'текос_епикоцым'", "'айеяаиес'", "'пяацлатийес'", "'ваяайтгяес'", "'коцийес'", 
-		"'цяаье'", "'ейтупысе'", "'диабасе'", "'йакесе'", "'акгхгс'", "'ьеудгс'", 
-		"'йаи'", "'г'", "'ови'", null, null, null, null, "'='", "'<>'", "'>'", 
-		"'>='", "'<'", "'<='", "'+'", "'-'", "'*'", "'/'", "'^'", "';'", "','", 
-		"'<-'", "'('", "')'", "'['", "']'", "'{'", "'}'"
+		"'текос_епикоцым'", "'айеяаиа'", "'айеяаиес'", "'пяацлатийес'", "'ваяайтгяес'", 
+		"'коцийес'", "'цяаье'", "'ейтупысе'", "'диабасе'", "'йакесе'", "'акгхгс'", 
+		"'ьеудгс'", "'йаи'", "'г'", "'ови'", null, null, null, null, "'='", "'<>'", 
+		"'>'", "'>='", "'<'", "'<='", "'+'", "'-'", "'*'", "'/'", "'^'", "';'", 
+		"','", "'<-'", "'('", "')'", "'['", "']'", "'{'", "'}'"
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, "PROGRAMMA", "ARXH", "TELOS_PROGRAMMATOS", "SYNARTHSH", "TELOS_SYNARTHSHS", 
 		"DIADIKASIA", "TELOS_DIADIKASIAS", "METABLHTES", "STATHERES", "AN", "TOTE", 
 		"TELOS_AN", "ALLIOS_AN", "ALLIOS", "ARXH_EPANALIPSIS", "MEXRIS_OTOU", 
 		"OSO", "EPANALABE", "TELOS_EPANALIPSIS", "GIA", "APO", "MEXRI", "ME_BHMA", 
-		"EPILEKSE", "PERIPTOSI", "TELOS_EPILOGON", "AKERAIES", "PRAGMATIKES", 
+		"EPILEKSE", "PERIPTOSI", "TELOS_EPILOGON", "AKERAIA", "AKERAIES", "PRAGMATIKES", 
 		"XARAKTHRES", "LOGIKES", "GRAPSE", "EKTIPOSE", "DIABASE", "KALESE", "TRUE", 
 		"FALSE", "KAI", "H", "OXI", "INTEGER", "DECIMAL", "STRING", "IDENTIFIER", 
 		"EQUALS", "NOTEQUALS", "GT", "GE", "LT", "LE", "PLUS", "MINUS", "MUL", 
@@ -305,6 +305,205 @@ public partial class GLOSSAParser : Parser {
 		return _localctx;
 	}
 
+	public partial class FunctiondefinitionContext : ParserRuleContext {
+		public FunctiondefinitionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_functiondefinition; } }
+	 
+		public FunctiondefinitionContext() { }
+		public virtual void CopyFrom(FunctiondefinitionContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class FuncdefContext : FunctiondefinitionContext {
+		public DeclarationsContext declarations(int i) {
+			return GetRuleContext<DeclarationsContext>(i);
+		}
+		public StatementlistContext statementlist() {
+			return GetRuleContext<StatementlistContext>(0);
+		}
+		public FunctionargumentsContext functionarguments() {
+			return GetRuleContext<FunctionargumentsContext>(0);
+		}
+		public ITerminalNode LPAREN() { return GetToken(GLOSSAParser.LPAREN, 0); }
+		public ITerminalNode SYNARTHSH() { return GetToken(GLOSSAParser.SYNARTHSH, 0); }
+		public IReadOnlyList<DeclarationsContext> declarations() {
+			return GetRuleContexts<DeclarationsContext>();
+		}
+		public ITerminalNode ARXH() { return GetToken(GLOSSAParser.ARXH, 0); }
+		public ITerminalNode RPAREN() { return GetToken(GLOSSAParser.RPAREN, 0); }
+		public TypeContext type() {
+			return GetRuleContext<TypeContext>(0);
+		}
+		public ITerminalNode IDENTIFIER() { return GetToken(GLOSSAParser.IDENTIFIER, 0); }
+		public ITerminalNode TELOS_SYNARTHSHS() { return GetToken(GLOSSAParser.TELOS_SYNARTHSHS, 0); }
+		public FuncdefContext(FunctiondefinitionContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.EnterFuncdef(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.ExitFuncdef(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFuncdef(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public FunctiondefinitionContext functiondefinition() {
+		FunctiondefinitionContext _localctx = new FunctiondefinitionContext(_ctx, State);
+		EnterRule(_localctx, 4, RULE_functiondefinition);
+		int _la;
+		try {
+			_localctx = new FuncdefContext(_localctx);
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 70; Match(SYNARTHSH);
+			State = 71; Match(IDENTIFIER);
+			State = 72; Match(LPAREN);
+			State = 74;
+			_la = _input.La(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTEGER) | (1L << DECIMAL) | (1L << STRING) | (1L << IDENTIFIER))) != 0)) {
+				{
+				State = 73; functionarguments();
+				}
+			}
+
+			State = 76; Match(RPAREN);
+			State = 77; Match(T__0);
+			State = 78; type();
+			State = 82;
+			_errHandler.Sync(this);
+			_la = _input.La(1);
+			while (_la==METABLHTES || _la==STATHERES) {
+				{
+				{
+				State = 79; declarations();
+				}
+				}
+				State = 84;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+			}
+			State = 85; Match(ARXH);
+			State = 86; statementlist();
+			State = 87; Match(TELOS_SYNARTHSHS);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ProceduredefinitionContext : ParserRuleContext {
+		public ProceduredefinitionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_proceduredefinition; } }
+	 
+		public ProceduredefinitionContext() { }
+		public virtual void CopyFrom(ProceduredefinitionContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class ProcdefContext : ProceduredefinitionContext {
+		public DeclarationsContext declarations(int i) {
+			return GetRuleContext<DeclarationsContext>(i);
+		}
+		public StatementlistContext statementlist() {
+			return GetRuleContext<StatementlistContext>(0);
+		}
+		public FunctionargumentsContext functionarguments() {
+			return GetRuleContext<FunctionargumentsContext>(0);
+		}
+		public ITerminalNode LPAREN() { return GetToken(GLOSSAParser.LPAREN, 0); }
+		public IReadOnlyList<DeclarationsContext> declarations() {
+			return GetRuleContexts<DeclarationsContext>();
+		}
+		public ITerminalNode ARXH() { return GetToken(GLOSSAParser.ARXH, 0); }
+		public ITerminalNode RPAREN() { return GetToken(GLOSSAParser.RPAREN, 0); }
+		public ITerminalNode TELOS_DIADIKASIAS() { return GetToken(GLOSSAParser.TELOS_DIADIKASIAS, 0); }
+		public ITerminalNode DIADIKASIA() { return GetToken(GLOSSAParser.DIADIKASIA, 0); }
+		public ITerminalNode IDENTIFIER() { return GetToken(GLOSSAParser.IDENTIFIER, 0); }
+		public ProcdefContext(ProceduredefinitionContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.EnterProcdef(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.ExitProcdef(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProcdef(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ProceduredefinitionContext proceduredefinition() {
+		ProceduredefinitionContext _localctx = new ProceduredefinitionContext(_ctx, State);
+		EnterRule(_localctx, 6, RULE_proceduredefinition);
+		int _la;
+		try {
+			_localctx = new ProcdefContext(_localctx);
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 89; Match(DIADIKASIA);
+			State = 90; Match(IDENTIFIER);
+			State = 91; Match(LPAREN);
+			State = 93;
+			_la = _input.La(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTEGER) | (1L << DECIMAL) | (1L << STRING) | (1L << IDENTIFIER))) != 0)) {
+				{
+				State = 92; functionarguments();
+				}
+			}
+
+			State = 95; Match(RPAREN);
+			State = 99;
+			_errHandler.Sync(this);
+			_la = _input.La(1);
+			while (_la==METABLHTES || _la==STATHERES) {
+				{
+				{
+				State = 96; declarations();
+				}
+				}
+				State = 101;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+			}
+			State = 102; Match(ARXH);
+			State = 103; statementlist();
+			State = 104; Match(TELOS_DIADIKASIAS);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public partial class StatementlistContext : ParserRuleContext {
 		public StatementlistContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -343,22 +542,22 @@ public partial class GLOSSAParser : Parser {
 	[RuleVersion(0)]
 	public StatementlistContext statementlist() {
 		StatementlistContext _localctx = new StatementlistContext(_ctx, State);
-		EnterRule(_localctx, 4, RULE_statementlist);
+		EnterRule(_localctx, 8, RULE_statementlist);
 		int _la;
 		try {
 			_localctx = new StmtlistContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 73;
+			State = 109;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AN) | (1L << ARXH_EPANALIPSIS) | (1L << OSO) | (1L << EPILEKSE) | (1L << GRAPSE) | (1L << EKTIPOSE) | (1L << DIABASE) | (1L << KALESE) | (1L << OXI) | (1L << INTEGER) | (1L << DECIMAL) | (1L << STRING) | (1L << IDENTIFIER) | (1L << PLUS) | (1L << MINUS) | (1L << LPAREN))) != 0)) {
 				{
 				{
-				State = 70; statement();
+				State = 106; statement();
 				}
 				}
-				State = 75;
+				State = 111;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
@@ -534,16 +733,16 @@ public partial class GLOSSAParser : Parser {
 	[RuleVersion(0)]
 	public StatementContext statement() {
 		StatementContext _localctx = new StatementContext(_ctx, State);
-		EnterRule(_localctx, 6, RULE_statement);
+		EnterRule(_localctx, 10, RULE_statement);
 		int _la;
 		try {
-			State = 91;
-			switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
+			State = 127;
+			switch ( Interpreter.AdaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				_localctx = new Stat_exprContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 76; expression(0);
+				State = 112; expression(0);
 				}
 				break;
 
@@ -551,7 +750,7 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_assignmentContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 77; assignment();
+				State = 113; assignment();
 				}
 				break;
 
@@ -559,19 +758,19 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_ioexprContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 78; keyword();
-				State = 79; expression(0);
-				State = 84;
+				State = 114; keyword();
+				State = 115; expression(0);
+				State = 120;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 80; Match(COMMA);
-					State = 81; expression(0);
+					State = 116; Match(COMMA);
+					State = 117; expression(0);
 					}
 					}
-					State = 86;
+					State = 122;
 					_errHandler.Sync(this);
 					_la = _input.La(1);
 				}
@@ -582,7 +781,7 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_ifctrlContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 87; ifcontrol();
+				State = 123; ifcontrol();
 				}
 				break;
 
@@ -590,7 +789,7 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_dowhileContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 88; dowhileloop();
+				State = 124; dowhileloop();
 				}
 				break;
 
@@ -598,7 +797,7 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_whileContext(_localctx);
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 89; whileloop();
+				State = 125; whileloop();
 				}
 				break;
 
@@ -606,7 +805,7 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Stat_switchContext(_localctx);
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 90; switchcontrol();
+				State = 126; switchcontrol();
 				}
 				break;
 			}
@@ -676,174 +875,26 @@ public partial class GLOSSAParser : Parser {
 	[RuleVersion(0)]
 	public DeclarationsContext declarations() {
 		DeclarationsContext _localctx = new DeclarationsContext(_ctx, State);
-		EnterRule(_localctx, 8, RULE_declarations);
+		EnterRule(_localctx, 12, RULE_declarations);
 		try {
-			State = 95;
+			State = 131;
 			switch (_input.La(1)) {
 			case METABLHTES:
 				_localctx = new VardeclContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 93; variabledeclarations();
+				State = 129; variabledeclarations();
 				}
 				break;
 			case STATHERES:
 				_localctx = new ConstdeclContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 94; constantdeclarations();
+				State = 130; constantdeclarations();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class FunctiondefinitionContext : ParserRuleContext {
-		public FunctiondefinitionContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_functiondefinition; } }
-	 
-		public FunctiondefinitionContext() { }
-		public virtual void CopyFrom(FunctiondefinitionContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class Funcdef1Context : FunctiondefinitionContext {
-		public StatementlistContext statementlist() {
-			return GetRuleContext<StatementlistContext>(0);
-		}
-		public FunctionargumentsContext functionarguments() {
-			return GetRuleContext<FunctionargumentsContext>(0);
-		}
-		public ITerminalNode SYNARTHSH() { return GetToken(GLOSSAParser.SYNARTHSH, 0); }
-		public TypeContext type() {
-			return GetRuleContext<TypeContext>(0);
-		}
-		public ITerminalNode IDENTIFIER() { return GetToken(GLOSSAParser.IDENTIFIER, 0); }
-		public ITerminalNode TELOS_SYNARTHSHS() { return GetToken(GLOSSAParser.TELOS_SYNARTHSHS, 0); }
-		public Funcdef1Context(FunctiondefinitionContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.EnterFuncdef1(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.ExitFuncdef1(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFuncdef1(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public FunctiondefinitionContext functiondefinition() {
-		FunctiondefinitionContext _localctx = new FunctiondefinitionContext(_ctx, State);
-		EnterRule(_localctx, 10, RULE_functiondefinition);
-		int _la;
-		try {
-			_localctx = new Funcdef1Context(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 97; Match(SYNARTHSH);
-			State = 98; Match(IDENTIFIER);
-			State = 100;
-			_la = _input.La(1);
-			if (_la==IDENTIFIER) {
-				{
-				State = 99; functionarguments();
-				}
-			}
-
-			State = 102; Match(T__0);
-			State = 103; type();
-			State = 104; statementlist();
-			State = 105; Match(TELOS_SYNARTHSHS);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class ProceduredefinitionContext : ParserRuleContext {
-		public ProceduredefinitionContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_proceduredefinition; } }
-	 
-		public ProceduredefinitionContext() { }
-		public virtual void CopyFrom(ProceduredefinitionContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class Procdef1Context : ProceduredefinitionContext {
-		public StatementlistContext statementlist() {
-			return GetRuleContext<StatementlistContext>(0);
-		}
-		public FunctionargumentsContext functionarguments() {
-			return GetRuleContext<FunctionargumentsContext>(0);
-		}
-		public ITerminalNode TELOS_DIADIKASIAS() { return GetToken(GLOSSAParser.TELOS_DIADIKASIAS, 0); }
-		public ITerminalNode DIADIKASIA() { return GetToken(GLOSSAParser.DIADIKASIA, 0); }
-		public ITerminalNode IDENTIFIER() { return GetToken(GLOSSAParser.IDENTIFIER, 0); }
-		public Procdef1Context(ProceduredefinitionContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.EnterProcdef1(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.ExitProcdef1(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitProcdef1(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ProceduredefinitionContext proceduredefinition() {
-		ProceduredefinitionContext _localctx = new ProceduredefinitionContext(_ctx, State);
-		EnterRule(_localctx, 12, RULE_proceduredefinition);
-		try {
-			_localctx = new Procdef1Context(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 107; Match(DIADIKASIA);
-			State = 108; Match(IDENTIFIER);
-			State = 110;
-			switch ( Interpreter.AdaptivePredict(_input,8,_ctx) ) {
-			case 1:
-				{
-				State = 109; functionarguments();
-				}
-				break;
-			}
-			State = 112; statementlist();
-			State = 113; Match(TELOS_DIADIKASIAS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -927,27 +978,27 @@ public partial class GLOSSAParser : Parser {
 		EnterRule(_localctx, 14, RULE_variabledeclarations);
 		int _la;
 		try {
-			State = 135;
-			switch ( Interpreter.AdaptivePredict(_input,11,_ctx) ) {
+			State = 153;
+			switch ( Interpreter.AdaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				_localctx = new Vardecl_alt1Context(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 115; Match(METABLHTES);
-				State = 116; type();
-				State = 117; Match(T__0);
-				State = 118; Match(IDENTIFIER);
-				State = 123;
+				State = 133; Match(METABLHTES);
+				State = 134; type();
+				State = 135; Match(T__0);
+				State = 136; Match(IDENTIFIER);
+				State = 141;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 119; Match(COMMA);
-					State = 120; Match(IDENTIFIER);
+					State = 137; Match(COMMA);
+					State = 138; Match(IDENTIFIER);
 					}
 					}
-					State = 125;
+					State = 143;
 					_errHandler.Sync(this);
 					_la = _input.La(1);
 				}
@@ -958,22 +1009,22 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Vardecl_alt2Context(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 126; Match(METABLHTES);
-				State = 131;
+				State = 144; Match(METABLHTES);
+				State = 149;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 				do {
 					{
 					{
-					State = 127; type();
-					State = 128; Match(T__0);
-					State = 129; Match(IDENTIFIER);
+					State = 145; type();
+					State = 146; Match(T__0);
+					State = 147; Match(IDENTIFIER);
 					}
 					}
-					State = 133;
+					State = 151;
 					_errHandler.Sync(this);
 					_la = _input.La(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AKERAIES) | (1L << PRAGMATIKES) | (1L << XARAKTHRES) | (1L << LOGIKES))) != 0) );
+				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AKERAIA) | (1L << AKERAIES) | (1L << PRAGMATIKES) | (1L << XARAKTHRES) | (1L << LOGIKES))) != 0) );
 				}
 				break;
 			}
@@ -1001,7 +1052,7 @@ public partial class GLOSSAParser : Parser {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class Constdecl_alt1Context : ConstantdeclarationsContext {
+	public partial class Constdecl_altContext : ConstantdeclarationsContext {
 		public IReadOnlyList<ITerminalNode> EQUALS() { return GetTokens(GLOSSAParser.EQUALS); }
 		public ITerminalNode STATHERES() { return GetToken(GLOSSAParser.STATHERES, 0); }
 		public ITerminalNode IDENTIFIER(int i) {
@@ -1017,18 +1068,18 @@ public partial class GLOSSAParser : Parser {
 		public ExpressionprimitivesContext expressionprimitives(int i) {
 			return GetRuleContext<ExpressionprimitivesContext>(i);
 		}
-		public Constdecl_alt1Context(ConstantdeclarationsContext context) { CopyFrom(context); }
+		public Constdecl_altContext(ConstantdeclarationsContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.EnterConstdecl_alt1(this);
+			if (typedListener != null) typedListener.EnterConstdecl_alt(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IGLOSSAListener typedListener = listener as IGLOSSAListener;
-			if (typedListener != null) typedListener.ExitConstdecl_alt1(this);
+			if (typedListener != null) typedListener.ExitConstdecl_alt(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitConstdecl_alt1(this);
+			if (typedVisitor != null) return typedVisitor.VisitConstdecl_alt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -1039,22 +1090,22 @@ public partial class GLOSSAParser : Parser {
 		EnterRule(_localctx, 16, RULE_constantdeclarations);
 		int _la;
 		try {
-			_localctx = new Constdecl_alt1Context(_localctx);
+			_localctx = new Constdecl_altContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 137; Match(STATHERES);
-			State = 141;
+			State = 155; Match(STATHERES);
+			State = 159;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			do {
 				{
 				{
-				State = 138; Match(IDENTIFIER);
-				State = 139; Match(EQUALS);
-				State = 140; expressionprimitives();
+				State = 156; Match(IDENTIFIER);
+				State = 157; Match(EQUALS);
+				State = 158; expressionprimitives();
 				}
 				}
-				State = 143;
+				State = 161;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			} while ( _la==IDENTIFIER );
@@ -1130,44 +1181,44 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new IfctrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 145; Match(AN);
-			State = 146; expression(0);
-			State = 147; Match(TOTE);
-			State = 151;
+			State = 163; Match(AN);
+			State = 164; expression(0);
+			State = 165; Match(TOTE);
+			State = 169;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AN) | (1L << ARXH_EPANALIPSIS) | (1L << OSO) | (1L << EPILEKSE) | (1L << GRAPSE) | (1L << EKTIPOSE) | (1L << DIABASE) | (1L << KALESE) | (1L << OXI) | (1L << INTEGER) | (1L << DECIMAL) | (1L << STRING) | (1L << IDENTIFIER) | (1L << PLUS) | (1L << MINUS) | (1L << LPAREN))) != 0)) {
 				{
 				{
-				State = 148; statement();
+				State = 166; statement();
 				}
 				}
-				State = 153;
+				State = 171;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 157;
+			State = 175;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while (_la==ALLIOS_AN) {
 				{
 				{
-				State = 154; elseif();
+				State = 172; elseif();
 				}
 				}
-				State = 159;
+				State = 177;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 161;
+			State = 179;
 			_la = _input.La(1);
 			if (_la==ALLIOS) {
 				{
-				State = 160; @else();
+				State = 178; @else();
 				}
 			}
 
-			State = 163; Match(TELOS_AN);
+			State = 181; Match(TELOS_AN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1226,10 +1277,10 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new ElseifctrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 165; Match(ALLIOS_AN);
-			State = 166; expression(0);
-			State = 167; Match(TOTE);
-			State = 168; statementlist();
+			State = 183; Match(ALLIOS_AN);
+			State = 184; expression(0);
+			State = 185; Match(TOTE);
+			State = 186; statementlist();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1284,8 +1335,8 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new ElsectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 170; Match(ALLIOS);
-			State = 171; statementlist();
+			State = 188; Match(ALLIOS);
+			State = 189; statementlist();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1344,10 +1395,10 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new DowhilectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 173; Match(ARXH_EPANALIPSIS);
-			State = 174; statementlist();
-			State = 175; Match(MEXRIS_OTOU);
-			State = 176; expression(0);
+			State = 191; Match(ARXH_EPANALIPSIS);
+			State = 192; statementlist();
+			State = 193; Match(MEXRIS_OTOU);
+			State = 194; expression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1407,11 +1458,11 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new WhilectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 178; Match(OSO);
-			State = 179; expression(0);
-			State = 180; Match(EPANALABE);
-			State = 181; statementlist();
-			State = 182; Match(TELOS_EPANALIPSIS);
+			State = 196; Match(OSO);
+			State = 197; expression(0);
+			State = 198; Match(EPANALABE);
+			State = 199; statementlist();
+			State = 200; Match(TELOS_EPANALIPSIS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1478,16 +1529,16 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new ForctrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 184; Match(GIA);
-			State = 185; Match(IDENTIFIER);
-			State = 186; Match(APO);
-			State = 187; Match(INTEGER);
-			State = 188; Match(MEXRI);
-			State = 189; Match(INTEGER);
-			State = 190; Match(ME_BHMA);
-			State = 191; expression(0);
-			State = 192; statementlist();
-			State = 193; Match(TELOS_EPANALIPSIS);
+			State = 202; Match(GIA);
+			State = 203; Match(IDENTIFIER);
+			State = 204; Match(APO);
+			State = 205; Match(INTEGER);
+			State = 206; Match(MEXRI);
+			State = 207; Match(INTEGER);
+			State = 208; Match(ME_BHMA);
+			State = 209; expression(0);
+			State = 210; statementlist();
+			State = 211; Match(TELOS_EPANALIPSIS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1555,9 +1606,9 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new SwitchctrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 195; Match(EPILEKSE);
-			State = 196; Match(IDENTIFIER);
-			State = 198;
+			State = 213; Match(EPILEKSE);
+			State = 214; Match(IDENTIFIER);
+			State = 216;
 			_errHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1565,31 +1616,31 @@ public partial class GLOSSAParser : Parser {
 				case 1:
 					{
 					{
-					State = 197; casescontrol();
+					State = 215; casescontrol();
 					}
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 200;
+				State = 218;
 				_errHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(_input,16,_ctx);
+				_alt = Interpreter.AdaptivePredict(_input,18,_ctx);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.InvalidAltNumber );
-			State = 205;
+			State = 223;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while (_la==PERIPTOSI) {
 				{
 				{
-				State = 202; otherwisecontrol();
+				State = 220; otherwisecontrol();
 				}
 				}
-				State = 207;
+				State = 225;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
-			State = 208; Match(TELOS_EPILOGON);
+			State = 226; Match(TELOS_EPILOGON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1647,9 +1698,9 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new CasectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 210; Match(PERIPTOSI);
-			State = 211; expression(0);
-			State = 212; statementlist();
+			State = 228; Match(PERIPTOSI);
+			State = 229; expression(0);
+			State = 230; statementlist();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1705,9 +1756,9 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new OtherwisectrlContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 214; Match(PERIPTOSI);
-			State = 215; Match(ALLIOS);
-			State = 216; statementlist();
+			State = 232; Match(PERIPTOSI);
+			State = 233; Match(ALLIOS);
+			State = 234; statementlist();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1735,10 +1786,12 @@ public partial class GLOSSAParser : Parser {
 	}
 	public partial class FunargsContext : FunctionargumentsContext {
 		public IReadOnlyList<ITerminalNode> COMMA() { return GetTokens(GLOSSAParser.COMMA); }
-		public ITerminalNode IDENTIFIER(int i) {
-			return GetToken(GLOSSAParser.IDENTIFIER, i);
+		public IReadOnlyList<ExpressionprimitivesContext> expressionprimitives() {
+			return GetRuleContexts<ExpressionprimitivesContext>();
 		}
-		public IReadOnlyList<ITerminalNode> IDENTIFIER() { return GetTokens(GLOSSAParser.IDENTIFIER); }
+		public ExpressionprimitivesContext expressionprimitives(int i) {
+			return GetRuleContext<ExpressionprimitivesContext>(i);
+		}
 		public ITerminalNode COMMA(int i) {
 			return GetToken(GLOSSAParser.COMMA, i);
 		}
@@ -1767,18 +1820,18 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new FunargsContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 218; Match(IDENTIFIER);
-			State = 223;
+			State = 236; expressionprimitives();
+			State = 241;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 219; Match(COMMA);
-				State = 220; Match(IDENTIFIER);
+				State = 237; Match(COMMA);
+				State = 238; expressionprimitives();
 				}
 				}
-				State = 225;
+				State = 243;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 			}
@@ -1837,9 +1890,9 @@ public partial class GLOSSAParser : Parser {
 			_localctx = new AssignContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 226; Match(IDENTIFIER);
-			State = 227; Match(ASSIGNMENT);
-			State = 228; expression(0);
+			State = 244; Match(IDENTIFIER);
+			State = 245; Match(ASSIGNMENT);
+			State = 246; expression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1939,34 +1992,34 @@ public partial class GLOSSAParser : Parser {
 		ExpressionprimitivesContext _localctx = new ExpressionprimitivesContext(_ctx, State);
 		EnterRule(_localctx, 40, RULE_expressionprimitives);
 		try {
-			State = 234;
+			State = 252;
 			switch (_input.La(1)) {
 			case INTEGER:
 				_localctx = new Expressionprimitives_intContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 230; Match(INTEGER);
+				State = 248; Match(INTEGER);
 				}
 				break;
 			case DECIMAL:
 				_localctx = new Expressionprimitives_decContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 231; Match(DECIMAL);
+				State = 249; Match(DECIMAL);
 				}
 				break;
 			case STRING:
 				_localctx = new Expressionprimitives_stringContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 232; Match(STRING);
+				State = 250; Match(STRING);
 				}
 				break;
 			case IDENTIFIER:
 				_localctx = new Expressionprimitives_identifierContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 233; Match(IDENTIFIER);
+				State = 251; Match(IDENTIFIER);
 				}
 				break;
 			default:
@@ -2247,22 +2300,22 @@ public partial class GLOSSAParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 250;
-			switch ( Interpreter.AdaptivePredict(_input,21,_ctx) ) {
+			State = 268;
+			switch ( Interpreter.AdaptivePredict(_input,23,_ctx) ) {
 			case 1:
 				{
 				_localctx = new Expr_unaryContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				State = 237;
+				State = 255;
 				((Expr_unaryContext)_localctx).op = _input.Lt(1);
 				_la = _input.La(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OXI) | (1L << PLUS) | (1L << MINUS))) != 0)) ) {
 					((Expr_unaryContext)_localctx).op = _errHandler.RecoverInline(this);
 				}
 				Consume();
-				State = 238; expression(8);
+				State = 256; expression(8);
 				}
 				break;
 
@@ -2271,9 +2324,9 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Expr_parenContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 239; Match(LPAREN);
-				State = 240; expression(0);
-				State = 241; Match(RPAREN);
+				State = 257; Match(LPAREN);
+				State = 258; expression(0);
+				State = 259; Match(RPAREN);
 				}
 				break;
 
@@ -2282,17 +2335,17 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Expr_funcproccallContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 243; Match(IDENTIFIER);
-				State = 244; Match(LPAREN);
-				State = 246;
+				State = 261; Match(IDENTIFIER);
+				State = 262; Match(LPAREN);
+				State = 264;
 				_la = _input.La(1);
-				if (_la==IDENTIFIER) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTEGER) | (1L << DECIMAL) | (1L << STRING) | (1L << IDENTIFIER))) != 0)) {
 					{
-					State = 245; functionarguments();
+					State = 263; functionarguments();
 					}
 				}
 
-				State = 248; Match(RPAREN);
+				State = 266; Match(RPAREN);
 				}
 				break;
 
@@ -2301,29 +2354,29 @@ public partial class GLOSSAParser : Parser {
 				_localctx = new Expr_expressionprimitivesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 249; expressionprimitives();
+				State = 267; expressionprimitives();
 				}
 				break;
 			}
 			_ctx.stop = _input.Lt(-1);
-			State = 272;
+			State = 290;
 			_errHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(_input,23,_ctx);
+			_alt = Interpreter.AdaptivePredict(_input,25,_ctx);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.InvalidAltNumber ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 270;
-					switch ( Interpreter.AdaptivePredict(_input,22,_ctx) ) {
+					State = 288;
+					switch ( Interpreter.AdaptivePredict(_input,24,_ctx) ) {
 					case 1:
 						{
 						_localctx = new Expr_powerContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 252;
+						State = 270;
 						if (!(Precpred(_ctx, 9))) throw new FailedPredicateException(this, "Precpred(_ctx, 9)");
-						State = 253; Match(POWER);
-						State = 254; expression(9);
+						State = 271; Match(POWER);
+						State = 272; expression(9);
 						}
 						break;
 
@@ -2331,16 +2384,16 @@ public partial class GLOSSAParser : Parser {
 						{
 						_localctx = new Expr_muldivContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 255;
+						State = 273;
 						if (!(Precpred(_ctx, 7))) throw new FailedPredicateException(this, "Precpred(_ctx, 7)");
-						State = 256;
+						State = 274;
 						((Expr_muldivContext)_localctx).op = _input.Lt(1);
 						_la = _input.La(1);
 						if ( !(_la==MUL || _la==DIV) ) {
 							((Expr_muldivContext)_localctx).op = _errHandler.RecoverInline(this);
 						}
 						Consume();
-						State = 257; expression(8);
+						State = 275; expression(8);
 						}
 						break;
 
@@ -2348,16 +2401,16 @@ public partial class GLOSSAParser : Parser {
 						{
 						_localctx = new Expr_plusminusContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 258;
+						State = 276;
 						if (!(Precpred(_ctx, 6))) throw new FailedPredicateException(this, "Precpred(_ctx, 6)");
-						State = 259;
+						State = 277;
 						((Expr_plusminusContext)_localctx).op = _input.Lt(1);
 						_la = _input.La(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
 							((Expr_plusminusContext)_localctx).op = _errHandler.RecoverInline(this);
 						}
 						Consume();
-						State = 260; expression(7);
+						State = 278; expression(7);
 						}
 						break;
 
@@ -2365,16 +2418,16 @@ public partial class GLOSSAParser : Parser {
 						{
 						_localctx = new Expr_compareContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 261;
+						State = 279;
 						if (!(Precpred(_ctx, 5))) throw new FailedPredicateException(this, "Precpred(_ctx, 5)");
-						State = 262;
+						State = 280;
 						((Expr_compareContext)_localctx).op = _input.Lt(1);
 						_la = _input.La(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQUALS) | (1L << NOTEQUALS) | (1L << GT) | (1L << GE) | (1L << LT) | (1L << LE))) != 0)) ) {
 							((Expr_compareContext)_localctx).op = _errHandler.RecoverInline(this);
 						}
 						Consume();
-						State = 263; expression(6);
+						State = 281; expression(6);
 						}
 						break;
 
@@ -2382,10 +2435,10 @@ public partial class GLOSSAParser : Parser {
 						{
 						_localctx = new Expr_andContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 264;
+						State = 282;
 						if (!(Precpred(_ctx, 4))) throw new FailedPredicateException(this, "Precpred(_ctx, 4)");
-						State = 265; Match(KAI);
-						State = 266; expression(5);
+						State = 283; Match(KAI);
+						State = 284; expression(5);
 						}
 						break;
 
@@ -2393,18 +2446,18 @@ public partial class GLOSSAParser : Parser {
 						{
 						_localctx = new Expr_orContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 267;
+						State = 285;
 						if (!(Precpred(_ctx, 3))) throw new FailedPredicateException(this, "Precpred(_ctx, 3)");
-						State = 268; Match(H);
-						State = 269; expression(4);
+						State = 286; Match(H);
+						State = 287; expression(4);
 						}
 						break;
 					}
 					} 
 				}
-				State = 274;
+				State = 292;
 				_errHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(_input,23,_ctx);
+				_alt = Interpreter.AdaptivePredict(_input,25,_ctx);
 			}
 			}
 		}
@@ -2429,6 +2482,23 @@ public partial class GLOSSAParser : Parser {
 		public TypeContext() { }
 		public virtual void CopyFrom(TypeContext context) {
 			base.CopyFrom(context);
+		}
+	}
+	public partial class TContext : TypeContext {
+		public ITerminalNode AKERAIA() { return GetToken(GLOSSAParser.AKERAIA, 0); }
+		public TContext(TypeContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.EnterT(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IGLOSSAListener typedListener = listener as IGLOSSAListener;
+			if (typedListener != null) typedListener.ExitT(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IGLOSSAVisitor<TResult> typedVisitor = visitor as IGLOSSAVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitT(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class Type_pragmatikesContext : TypeContext {
@@ -2505,34 +2575,41 @@ public partial class GLOSSAParser : Parser {
 		TypeContext _localctx = new TypeContext(_ctx, State);
 		EnterRule(_localctx, 44, RULE_type);
 		try {
-			State = 279;
+			State = 298;
 			switch (_input.La(1)) {
 			case AKERAIES:
 				_localctx = new Type_akeraiesContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 275; Match(AKERAIES);
+				State = 293; Match(AKERAIES);
 				}
 				break;
 			case PRAGMATIKES:
 				_localctx = new Type_pragmatikesContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 276; Match(PRAGMATIKES);
+				State = 294; Match(PRAGMATIKES);
 				}
 				break;
 			case XARAKTHRES:
 				_localctx = new Type_xaraktiresContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 277; Match(XARAKTHRES);
+				State = 295; Match(XARAKTHRES);
 				}
 				break;
 			case LOGIKES:
 				_localctx = new Type_logikesContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 278; Match(LOGIKES);
+				State = 296; Match(LOGIKES);
+				}
+				break;
+			case AKERAIA:
+				_localctx = new TContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 297; Match(AKERAIA);
 				}
 				break;
 			default:
@@ -2636,34 +2713,34 @@ public partial class GLOSSAParser : Parser {
 		KeywordContext _localctx = new KeywordContext(_ctx, State);
 		EnterRule(_localctx, 46, RULE_keyword);
 		try {
-			State = 285;
+			State = 304;
 			switch (_input.La(1)) {
 			case GRAPSE:
 				_localctx = new Keyword_grapseContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 281; Match(GRAPSE);
+				State = 300; Match(GRAPSE);
 				}
 				break;
 			case EKTIPOSE:
 				_localctx = new Keyword_ektiposeContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 282; Match(EKTIPOSE);
+				State = 301; Match(EKTIPOSE);
 				}
 				break;
 			case DIABASE:
 				_localctx = new Keyword_diabaseContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 283; Match(DIABASE);
+				State = 302; Match(DIABASE);
 				}
 				break;
 			case KALESE:
 				_localctx = new Keyword_kaleseContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 284; Match(KALESE);
+				State = 303; Match(KALESE);
 				}
 				break;
 			default:
@@ -2733,20 +2810,20 @@ public partial class GLOSSAParser : Parser {
 		BoolContext _localctx = new BoolContext(_ctx, State);
 		EnterRule(_localctx, 48, RULE_bool);
 		try {
-			State = 289;
+			State = 308;
 			switch (_input.La(1)) {
 			case TRUE:
 				_localctx = new Bool_trueContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 287; Match(TRUE);
+				State = 306; Match(TRUE);
 				}
 				break;
 			case FALSE:
 				_localctx = new Bool_falseContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 288; Match(FALSE);
+				State = 307; Match(FALSE);
 				}
 				break;
 			default:
@@ -2788,118 +2865,127 @@ public partial class GLOSSAParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\x44\x126\x4\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\x45\x139\x4\x2"+
 		"\t\x2\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4"+
 		"\t\t\t\x4\n\t\n\x4\v\t\v\x4\f\t\f\x4\r\t\r\x4\xE\t\xE\x4\xF\t\xF\x4\x10"+
 		"\t\x10\x4\x11\t\x11\x4\x12\t\x12\x4\x13\t\x13\x4\x14\t\x14\x4\x15\t\x15"+
 		"\x4\x16\t\x16\x4\x17\t\x17\x4\x18\t\x18\x4\x19\t\x19\x4\x1A\t\x1A\x3\x2"+
 		"\x3\x2\x3\x2\a\x2\x38\n\x2\f\x2\xE\x2;\v\x2\x3\x3\x3\x3\x3\x3\a\x3@\n"+
-		"\x3\f\x3\xE\x3\x43\v\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x4\a\x4J\n\x4\f\x4"+
-		"\xE\x4M\v\x4\x3\x5\x3\x5\x3\x5\x3\x5\x3\x5\x3\x5\a\x5U\n\x5\f\x5\xE\x5"+
-		"X\v\x5\x3\x5\x3\x5\x3\x5\x3\x5\x5\x5^\n\x5\x3\x6\x3\x6\x5\x6\x62\n\x6"+
-		"\x3\a\x3\a\x3\a\x5\ag\n\a\x3\a\x3\a\x3\a\x3\a\x3\a\x3\b\x3\b\x3\b\x5\b"+
-		"q\n\b\x3\b\x3\b\x3\b\x3\t\x3\t\x3\t\x3\t\x3\t\x3\t\a\t|\n\t\f\t\xE\t\x7F"+
-		"\v\t\x3\t\x3\t\x3\t\x3\t\x3\t\x6\t\x86\n\t\r\t\xE\t\x87\x5\t\x8A\n\t\x3"+
-		"\n\x3\n\x3\n\x3\n\x6\n\x90\n\n\r\n\xE\n\x91\x3\v\x3\v\x3\v\x3\v\a\v\x98"+
-		"\n\v\f\v\xE\v\x9B\v\v\x3\v\a\v\x9E\n\v\f\v\xE\v\xA1\v\v\x3\v\x5\v\xA4"+
-		"\n\v\x3\v\x3\v\x3\f\x3\f\x3\f\x3\f\x3\f\x3\r\x3\r\x3\r\x3\xE\x3\xE\x3"+
-		"\xE\x3\xE\x3\xE\x3\xF\x3\xF\x3\xF\x3\xF\x3\xF\x3\xF\x3\x10\x3\x10\x3\x10"+
-		"\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x11\x3\x11"+
-		"\x3\x11\x6\x11\xC9\n\x11\r\x11\xE\x11\xCA\x3\x11\a\x11\xCE\n\x11\f\x11"+
-		"\xE\x11\xD1\v\x11\x3\x11\x3\x11\x3\x12\x3\x12\x3\x12\x3\x12\x3\x13\x3"+
-		"\x13\x3\x13\x3\x13\x3\x14\x3\x14\x3\x14\a\x14\xE0\n\x14\f\x14\xE\x14\xE3"+
-		"\v\x14\x3\x15\x3\x15\x3\x15\x3\x15\x3\x16\x3\x16\x3\x16\x3\x16\x5\x16"+
-		"\xED\n\x16\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3"+
-		"\x17\x3\x17\x5\x17\xF9\n\x17\x3\x17\x3\x17\x5\x17\xFD\n\x17\x3\x17\x3"+
-		"\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3"+
-		"\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\a\x17\x111\n\x17\f\x17"+
-		"\xE\x17\x114\v\x17\x3\x18\x3\x18\x3\x18\x3\x18\x5\x18\x11A\n\x18\x3\x19"+
-		"\x3\x19\x3\x19\x3\x19\x5\x19\x120\n\x19\x3\x1A\x3\x1A\x5\x1A\x124\n\x1A"+
-		"\x3\x1A\x2\x2\x3,\x1B\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x12"+
-		"\x2\x14\x2\x16\x2\x18\x2\x1A\x2\x1C\x2\x1E\x2 \x2\"\x2$\x2&\x2(\x2*\x2"+
-		",\x2.\x2\x30\x2\x32\x2\x2\x6\x4\x2**\x35\x36\x3\x2\x37\x38\x3\x2\x35\x36"+
-		"\x3\x2/\x34\x138\x2\x34\x3\x2\x2\x2\x4<\x3\x2\x2\x2\x6K\x3\x2\x2\x2\b"+
-		"]\x3\x2\x2\x2\n\x61\x3\x2\x2\x2\f\x63\x3\x2\x2\x2\xEm\x3\x2\x2\x2\x10"+
-		"\x89\x3\x2\x2\x2\x12\x8B\x3\x2\x2\x2\x14\x93\x3\x2\x2\x2\x16\xA7\x3\x2"+
-		"\x2\x2\x18\xAC\x3\x2\x2\x2\x1A\xAF\x3\x2\x2\x2\x1C\xB4\x3\x2\x2\x2\x1E"+
-		"\xBA\x3\x2\x2\x2 \xC5\x3\x2\x2\x2\"\xD4\x3\x2\x2\x2$\xD8\x3\x2\x2\x2&"+
-		"\xDC\x3\x2\x2\x2(\xE4\x3\x2\x2\x2*\xEC\x3\x2\x2\x2,\xFC\x3\x2\x2\x2.\x119"+
-		"\x3\x2\x2\x2\x30\x11F\x3\x2\x2\x2\x32\x123\x3\x2\x2\x2\x34\x39\x5\x4\x3"+
-		"\x2\x35\x38\x5\f\a\x2\x36\x38\x5\xE\b\x2\x37\x35\x3\x2\x2\x2\x37\x36\x3"+
-		"\x2\x2\x2\x38;\x3\x2\x2\x2\x39\x37\x3\x2\x2\x2\x39:\x3\x2\x2\x2:\x3\x3"+
-		"\x2\x2\x2;\x39\x3\x2\x2\x2<=\a\x4\x2\x2=\x41\a.\x2\x2>@\x5\n\x6\x2?>\x3"+
-		"\x2\x2\x2@\x43\x3\x2\x2\x2\x41?\x3\x2\x2\x2\x41\x42\x3\x2\x2\x2\x42\x44"+
-		"\x3\x2\x2\x2\x43\x41\x3\x2\x2\x2\x44\x45\a\x5\x2\x2\x45\x46\x5\x6\x4\x2"+
-		"\x46G\a\x6\x2\x2G\x5\x3\x2\x2\x2HJ\x5\b\x5\x2IH\x3\x2\x2\x2JM\x3\x2\x2"+
-		"\x2KI\x3\x2\x2\x2KL\x3\x2\x2\x2L\a\x3\x2\x2\x2MK\x3\x2\x2\x2N^\x5,\x17"+
-		"\x2O^\x5(\x15\x2PQ\x5\x30\x19\x2QV\x5,\x17\x2RS\a;\x2\x2SU\x5,\x17\x2"+
-		"TR\x3\x2\x2\x2UX\x3\x2\x2\x2VT\x3\x2\x2\x2VW\x3\x2\x2\x2W^\x3\x2\x2\x2"+
-		"XV\x3\x2\x2\x2Y^\x5\x14\v\x2Z^\x5\x1A\xE\x2[^\x5\x1C\xF\x2\\^\x5 \x11"+
-		"\x2]N\x3\x2\x2\x2]O\x3\x2\x2\x2]P\x3\x2\x2\x2]Y\x3\x2\x2\x2]Z\x3\x2\x2"+
-		"\x2][\x3\x2\x2\x2]\\\x3\x2\x2\x2^\t\x3\x2\x2\x2_\x62\x5\x10\t\x2`\x62"+
-		"\x5\x12\n\x2\x61_\x3\x2\x2\x2\x61`\x3\x2\x2\x2\x62\v\x3\x2\x2\x2\x63\x64"+
-		"\a\a\x2\x2\x64\x66\a.\x2\x2\x65g\x5&\x14\x2\x66\x65\x3\x2\x2\x2\x66g\x3"+
-		"\x2\x2\x2gh\x3\x2\x2\x2hi\a\x3\x2\x2ij\x5.\x18\x2jk\x5\x6\x4\x2kl\a\b"+
-		"\x2\x2l\r\x3\x2\x2\x2mn\a\t\x2\x2np\a.\x2\x2oq\x5&\x14\x2po\x3\x2\x2\x2"+
-		"pq\x3\x2\x2\x2qr\x3\x2\x2\x2rs\x5\x6\x4\x2st\a\n\x2\x2t\xF\x3\x2\x2\x2"+
-		"uv\a\v\x2\x2vw\x5.\x18\x2wx\a\x3\x2\x2x}\a.\x2\x2yz\a;\x2\x2z|\a.\x2\x2"+
-		"{y\x3\x2\x2\x2|\x7F\x3\x2\x2\x2}{\x3\x2\x2\x2}~\x3\x2\x2\x2~\x8A\x3\x2"+
-		"\x2\x2\x7F}\x3\x2\x2\x2\x80\x85\a\v\x2\x2\x81\x82\x5.\x18\x2\x82\x83\a"+
-		"\x3\x2\x2\x83\x84\a.\x2\x2\x84\x86\x3\x2\x2\x2\x85\x81\x3\x2\x2\x2\x86"+
-		"\x87\x3\x2\x2\x2\x87\x85\x3\x2\x2\x2\x87\x88\x3\x2\x2\x2\x88\x8A\x3\x2"+
-		"\x2\x2\x89u\x3\x2\x2\x2\x89\x80\x3\x2\x2\x2\x8A\x11\x3\x2\x2\x2\x8B\x8F"+
-		"\a\f\x2\x2\x8C\x8D\a.\x2\x2\x8D\x8E\a/\x2\x2\x8E\x90\x5*\x16\x2\x8F\x8C"+
-		"\x3\x2\x2\x2\x90\x91\x3\x2\x2\x2\x91\x8F\x3\x2\x2\x2\x91\x92\x3\x2\x2"+
-		"\x2\x92\x13\x3\x2\x2\x2\x93\x94\a\r\x2\x2\x94\x95\x5,\x17\x2\x95\x99\a"+
-		"\xE\x2\x2\x96\x98\x5\b\x5\x2\x97\x96\x3\x2\x2\x2\x98\x9B\x3\x2\x2\x2\x99"+
-		"\x97\x3\x2\x2\x2\x99\x9A\x3\x2\x2\x2\x9A\x9F\x3\x2\x2\x2\x9B\x99\x3\x2"+
-		"\x2\x2\x9C\x9E\x5\x16\f\x2\x9D\x9C\x3\x2\x2\x2\x9E\xA1\x3\x2\x2\x2\x9F"+
-		"\x9D\x3\x2\x2\x2\x9F\xA0\x3\x2\x2\x2\xA0\xA3\x3\x2\x2\x2\xA1\x9F\x3\x2"+
-		"\x2\x2\xA2\xA4\x5\x18\r\x2\xA3\xA2\x3\x2\x2\x2\xA3\xA4\x3\x2\x2\x2\xA4"+
-		"\xA5\x3\x2\x2\x2\xA5\xA6\a\xF\x2\x2\xA6\x15\x3\x2\x2\x2\xA7\xA8\a\x10"+
-		"\x2\x2\xA8\xA9\x5,\x17\x2\xA9\xAA\a\xE\x2\x2\xAA\xAB\x5\x6\x4\x2\xAB\x17"+
-		"\x3\x2\x2\x2\xAC\xAD\a\x11\x2\x2\xAD\xAE\x5\x6\x4\x2\xAE\x19\x3\x2\x2"+
-		"\x2\xAF\xB0\a\x12\x2\x2\xB0\xB1\x5\x6\x4\x2\xB1\xB2\a\x13\x2\x2\xB2\xB3"+
-		"\x5,\x17\x2\xB3\x1B\x3\x2\x2\x2\xB4\xB5\a\x14\x2\x2\xB5\xB6\x5,\x17\x2"+
-		"\xB6\xB7\a\x15\x2\x2\xB7\xB8\x5\x6\x4\x2\xB8\xB9\a\x16\x2\x2\xB9\x1D\x3"+
-		"\x2\x2\x2\xBA\xBB\a\x17\x2\x2\xBB\xBC\a.\x2\x2\xBC\xBD\a\x18\x2\x2\xBD"+
-		"\xBE\a+\x2\x2\xBE\xBF\a\x19\x2\x2\xBF\xC0\a+\x2\x2\xC0\xC1\a\x1A\x2\x2"+
-		"\xC1\xC2\x5,\x17\x2\xC2\xC3\x5\x6\x4\x2\xC3\xC4\a\x16\x2\x2\xC4\x1F\x3"+
-		"\x2\x2\x2\xC5\xC6\a\x1B\x2\x2\xC6\xC8\a.\x2\x2\xC7\xC9\x5\"\x12\x2\xC8"+
-		"\xC7\x3\x2\x2\x2\xC9\xCA\x3\x2\x2\x2\xCA\xC8\x3\x2\x2\x2\xCA\xCB\x3\x2"+
-		"\x2\x2\xCB\xCF\x3\x2\x2\x2\xCC\xCE\x5$\x13\x2\xCD\xCC\x3\x2\x2\x2\xCE"+
-		"\xD1\x3\x2\x2\x2\xCF\xCD\x3\x2\x2\x2\xCF\xD0\x3\x2\x2\x2\xD0\xD2\x3\x2"+
-		"\x2\x2\xD1\xCF\x3\x2\x2\x2\xD2\xD3\a\x1D\x2\x2\xD3!\x3\x2\x2\x2\xD4\xD5"+
-		"\a\x1C\x2\x2\xD5\xD6\x5,\x17\x2\xD6\xD7\x5\x6\x4\x2\xD7#\x3\x2\x2\x2\xD8"+
-		"\xD9\a\x1C\x2\x2\xD9\xDA\a\x11\x2\x2\xDA\xDB\x5\x6\x4\x2\xDB%\x3\x2\x2"+
-		"\x2\xDC\xE1\a.\x2\x2\xDD\xDE\a;\x2\x2\xDE\xE0\a.\x2\x2\xDF\xDD\x3\x2\x2"+
-		"\x2\xE0\xE3\x3\x2\x2\x2\xE1\xDF\x3\x2\x2\x2\xE1\xE2\x3\x2\x2\x2\xE2\'"+
-		"\x3\x2\x2\x2\xE3\xE1\x3\x2\x2\x2\xE4\xE5\a.\x2\x2\xE5\xE6\a<\x2\x2\xE6"+
-		"\xE7\x5,\x17\x2\xE7)\x3\x2\x2\x2\xE8\xED\a+\x2\x2\xE9\xED\a,\x2\x2\xEA"+
-		"\xED\a-\x2\x2\xEB\xED\a.\x2\x2\xEC\xE8\x3\x2\x2\x2\xEC\xE9\x3\x2\x2\x2"+
-		"\xEC\xEA\x3\x2\x2\x2\xEC\xEB\x3\x2\x2\x2\xED+\x3\x2\x2\x2\xEE\xEF\b\x17"+
-		"\x1\x2\xEF\xF0\t\x2\x2\x2\xF0\xFD\x5,\x17\n\xF1\xF2\a=\x2\x2\xF2\xF3\x5"+
-		",\x17\x2\xF3\xF4\a>\x2\x2\xF4\xFD\x3\x2\x2\x2\xF5\xF6\a.\x2\x2\xF6\xF8"+
-		"\a=\x2\x2\xF7\xF9\x5&\x14\x2\xF8\xF7\x3\x2\x2\x2\xF8\xF9\x3\x2\x2\x2\xF9"+
-		"\xFA\x3\x2\x2\x2\xFA\xFD\a>\x2\x2\xFB\xFD\x5*\x16\x2\xFC\xEE\x3\x2\x2"+
-		"\x2\xFC\xF1\x3\x2\x2\x2\xFC\xF5\x3\x2\x2\x2\xFC\xFB\x3\x2\x2\x2\xFD\x112"+
-		"\x3\x2\x2\x2\xFE\xFF\f\v\x2\x2\xFF\x100\a\x39\x2\x2\x100\x111\x5,\x17"+
-		"\v\x101\x102\f\t\x2\x2\x102\x103\t\x3\x2\x2\x103\x111\x5,\x17\n\x104\x105"+
-		"\f\b\x2\x2\x105\x106\t\x4\x2\x2\x106\x111\x5,\x17\t\x107\x108\f\a\x2\x2"+
-		"\x108\x109\t\x5\x2\x2\x109\x111\x5,\x17\b\x10A\x10B\f\x6\x2\x2\x10B\x10C"+
-		"\a(\x2\x2\x10C\x111\x5,\x17\a\x10D\x10E\f\x5\x2\x2\x10E\x10F\a)\x2\x2"+
-		"\x10F\x111\x5,\x17\x6\x110\xFE\x3\x2\x2\x2\x110\x101\x3\x2\x2\x2\x110"+
-		"\x104\x3\x2\x2\x2\x110\x107\x3\x2\x2\x2\x110\x10A\x3\x2\x2\x2\x110\x10D"+
-		"\x3\x2\x2\x2\x111\x114\x3\x2\x2\x2\x112\x110\x3\x2\x2\x2\x112\x113\x3"+
-		"\x2\x2\x2\x113-\x3\x2\x2\x2\x114\x112\x3\x2\x2\x2\x115\x11A\a\x1E\x2\x2"+
-		"\x116\x11A\a\x1F\x2\x2\x117\x11A\a \x2\x2\x118\x11A\a!\x2\x2\x119\x115"+
-		"\x3\x2\x2\x2\x119\x116\x3\x2\x2\x2\x119\x117\x3\x2\x2\x2\x119\x118\x3"+
-		"\x2\x2\x2\x11A/\x3\x2\x2\x2\x11B\x120\a\"\x2\x2\x11C\x120\a#\x2\x2\x11D"+
-		"\x120\a$\x2\x2\x11E\x120\a%\x2\x2\x11F\x11B\x3\x2\x2\x2\x11F\x11C\x3\x2"+
-		"\x2\x2\x11F\x11D\x3\x2\x2\x2\x11F\x11E\x3\x2\x2\x2\x120\x31\x3\x2\x2\x2"+
-		"\x121\x124\a&\x2\x2\x122\x124\a\'\x2\x2\x123\x121\x3\x2\x2\x2\x123\x122"+
-		"\x3\x2\x2\x2\x124\x33\x3\x2\x2\x2\x1D\x37\x39\x41KV]\x61\x66p}\x87\x89"+
-		"\x91\x99\x9F\xA3\xCA\xCF\xE1\xEC\xF8\xFC\x110\x112\x119\x11F\x123";
+		"\x3\f\x3\xE\x3\x43\v\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x4\x3\x4\x3\x4\x3\x4"+
+		"\x5\x4M\n\x4\x3\x4\x3\x4\x3\x4\x3\x4\a\x4S\n\x4\f\x4\xE\x4V\v\x4\x3\x4"+
+		"\x3\x4\x3\x4\x3\x4\x3\x5\x3\x5\x3\x5\x3\x5\x5\x5`\n\x5\x3\x5\x3\x5\a\x5"+
+		"\x64\n\x5\f\x5\xE\x5g\v\x5\x3\x5\x3\x5\x3\x5\x3\x5\x3\x6\a\x6n\n\x6\f"+
+		"\x6\xE\x6q\v\x6\x3\a\x3\a\x3\a\x3\a\x3\a\x3\a\a\ay\n\a\f\a\xE\a|\v\a\x3"+
+		"\a\x3\a\x3\a\x3\a\x5\a\x82\n\a\x3\b\x3\b\x5\b\x86\n\b\x3\t\x3\t\x3\t\x3"+
+		"\t\x3\t\x3\t\a\t\x8E\n\t\f\t\xE\t\x91\v\t\x3\t\x3\t\x3\t\x3\t\x3\t\x6"+
+		"\t\x98\n\t\r\t\xE\t\x99\x5\t\x9C\n\t\x3\n\x3\n\x3\n\x3\n\x6\n\xA2\n\n"+
+		"\r\n\xE\n\xA3\x3\v\x3\v\x3\v\x3\v\a\v\xAA\n\v\f\v\xE\v\xAD\v\v\x3\v\a"+
+		"\v\xB0\n\v\f\v\xE\v\xB3\v\v\x3\v\x5\v\xB6\n\v\x3\v\x3\v\x3\f\x3\f\x3\f"+
+		"\x3\f\x3\f\x3\r\x3\r\x3\r\x3\xE\x3\xE\x3\xE\x3\xE\x3\xE\x3\xF\x3\xF\x3"+
+		"\xF\x3\xF\x3\xF\x3\xF\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10\x3\x10"+
+		"\x3\x10\x3\x10\x3\x10\x3\x10\x3\x11\x3\x11\x3\x11\x6\x11\xDB\n\x11\r\x11"+
+		"\xE\x11\xDC\x3\x11\a\x11\xE0\n\x11\f\x11\xE\x11\xE3\v\x11\x3\x11\x3\x11"+
+		"\x3\x12\x3\x12\x3\x12\x3\x12\x3\x13\x3\x13\x3\x13\x3\x13\x3\x14\x3\x14"+
+		"\x3\x14\a\x14\xF2\n\x14\f\x14\xE\x14\xF5\v\x14\x3\x15\x3\x15\x3\x15\x3"+
+		"\x15\x3\x16\x3\x16\x3\x16\x3\x16\x5\x16\xFF\n\x16\x3\x17\x3\x17\x3\x17"+
+		"\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x5\x17\x10B\n\x17\x3"+
+		"\x17\x3\x17\x5\x17\x10F\n\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17"+
+		"\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17\x3\x17"+
+		"\x3\x17\x3\x17\a\x17\x123\n\x17\f\x17\xE\x17\x126\v\x17\x3\x18\x3\x18"+
+		"\x3\x18\x3\x18\x3\x18\x5\x18\x12D\n\x18\x3\x19\x3\x19\x3\x19\x3\x19\x5"+
+		"\x19\x133\n\x19\x3\x1A\x3\x1A\x5\x1A\x137\n\x1A\x3\x1A\x2\x2\x3,\x1B\x2"+
+		"\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x12\x2\x14\x2\x16\x2\x18\x2"+
+		"\x1A\x2\x1C\x2\x1E\x2 \x2\"\x2$\x2&\x2(\x2*\x2,\x2.\x2\x30\x2\x32\x2\x2"+
+		"\x6\x4\x2++\x36\x37\x3\x2\x38\x39\x3\x2\x36\x37\x3\x2\x30\x35\x14E\x2"+
+		"\x34\x3\x2\x2\x2\x4<\x3\x2\x2\x2\x6H\x3\x2\x2\x2\b[\x3\x2\x2\x2\no\x3"+
+		"\x2\x2\x2\f\x81\x3\x2\x2\x2\xE\x85\x3\x2\x2\x2\x10\x9B\x3\x2\x2\x2\x12"+
+		"\x9D\x3\x2\x2\x2\x14\xA5\x3\x2\x2\x2\x16\xB9\x3\x2\x2\x2\x18\xBE\x3\x2"+
+		"\x2\x2\x1A\xC1\x3\x2\x2\x2\x1C\xC6\x3\x2\x2\x2\x1E\xCC\x3\x2\x2\x2 \xD7"+
+		"\x3\x2\x2\x2\"\xE6\x3\x2\x2\x2$\xEA\x3\x2\x2\x2&\xEE\x3\x2\x2\x2(\xF6"+
+		"\x3\x2\x2\x2*\xFE\x3\x2\x2\x2,\x10E\x3\x2\x2\x2.\x12C\x3\x2\x2\x2\x30"+
+		"\x132\x3\x2\x2\x2\x32\x136\x3\x2\x2\x2\x34\x39\x5\x4\x3\x2\x35\x38\x5"+
+		"\x6\x4\x2\x36\x38\x5\b\x5\x2\x37\x35\x3\x2\x2\x2\x37\x36\x3\x2\x2\x2\x38"+
+		";\x3\x2\x2\x2\x39\x37\x3\x2\x2\x2\x39:\x3\x2\x2\x2:\x3\x3\x2\x2\x2;\x39"+
+		"\x3\x2\x2\x2<=\a\x4\x2\x2=\x41\a/\x2\x2>@\x5\xE\b\x2?>\x3\x2\x2\x2@\x43"+
+		"\x3\x2\x2\x2\x41?\x3\x2\x2\x2\x41\x42\x3\x2\x2\x2\x42\x44\x3\x2\x2\x2"+
+		"\x43\x41\x3\x2\x2\x2\x44\x45\a\x5\x2\x2\x45\x46\x5\n\x6\x2\x46G\a\x6\x2"+
+		"\x2G\x5\x3\x2\x2\x2HI\a\a\x2\x2IJ\a/\x2\x2JL\a>\x2\x2KM\x5&\x14\x2LK\x3"+
+		"\x2\x2\x2LM\x3\x2\x2\x2MN\x3\x2\x2\x2NO\a?\x2\x2OP\a\x3\x2\x2PT\x5.\x18"+
+		"\x2QS\x5\xE\b\x2RQ\x3\x2\x2\x2SV\x3\x2\x2\x2TR\x3\x2\x2\x2TU\x3\x2\x2"+
+		"\x2UW\x3\x2\x2\x2VT\x3\x2\x2\x2WX\a\x5\x2\x2XY\x5\n\x6\x2YZ\a\b\x2\x2"+
+		"Z\a\x3\x2\x2\x2[\\\a\t\x2\x2\\]\a/\x2\x2]_\a>\x2\x2^`\x5&\x14\x2_^\x3"+
+		"\x2\x2\x2_`\x3\x2\x2\x2`\x61\x3\x2\x2\x2\x61\x65\a?\x2\x2\x62\x64\x5\xE"+
+		"\b\x2\x63\x62\x3\x2\x2\x2\x64g\x3\x2\x2\x2\x65\x63\x3\x2\x2\x2\x65\x66"+
+		"\x3\x2\x2\x2\x66h\x3\x2\x2\x2g\x65\x3\x2\x2\x2hi\a\x5\x2\x2ij\x5\n\x6"+
+		"\x2jk\a\n\x2\x2k\t\x3\x2\x2\x2ln\x5\f\a\x2ml\x3\x2\x2\x2nq\x3\x2\x2\x2"+
+		"om\x3\x2\x2\x2op\x3\x2\x2\x2p\v\x3\x2\x2\x2qo\x3\x2\x2\x2r\x82\x5,\x17"+
+		"\x2s\x82\x5(\x15\x2tu\x5\x30\x19\x2uz\x5,\x17\x2vw\a<\x2\x2wy\x5,\x17"+
+		"\x2xv\x3\x2\x2\x2y|\x3\x2\x2\x2zx\x3\x2\x2\x2z{\x3\x2\x2\x2{\x82\x3\x2"+
+		"\x2\x2|z\x3\x2\x2\x2}\x82\x5\x14\v\x2~\x82\x5\x1A\xE\x2\x7F\x82\x5\x1C"+
+		"\xF\x2\x80\x82\x5 \x11\x2\x81r\x3\x2\x2\x2\x81s\x3\x2\x2\x2\x81t\x3\x2"+
+		"\x2\x2\x81}\x3\x2\x2\x2\x81~\x3\x2\x2\x2\x81\x7F\x3\x2\x2\x2\x81\x80\x3"+
+		"\x2\x2\x2\x82\r\x3\x2\x2\x2\x83\x86\x5\x10\t\x2\x84\x86\x5\x12\n\x2\x85"+
+		"\x83\x3\x2\x2\x2\x85\x84\x3\x2\x2\x2\x86\xF\x3\x2\x2\x2\x87\x88\a\v\x2"+
+		"\x2\x88\x89\x5.\x18\x2\x89\x8A\a\x3\x2\x2\x8A\x8F\a/\x2\x2\x8B\x8C\a<"+
+		"\x2\x2\x8C\x8E\a/\x2\x2\x8D\x8B\x3\x2\x2\x2\x8E\x91\x3\x2\x2\x2\x8F\x8D"+
+		"\x3\x2\x2\x2\x8F\x90\x3\x2\x2\x2\x90\x9C\x3\x2\x2\x2\x91\x8F\x3\x2\x2"+
+		"\x2\x92\x97\a\v\x2\x2\x93\x94\x5.\x18\x2\x94\x95\a\x3\x2\x2\x95\x96\a"+
+		"/\x2\x2\x96\x98\x3\x2\x2\x2\x97\x93\x3\x2\x2\x2\x98\x99\x3\x2\x2\x2\x99"+
+		"\x97\x3\x2\x2\x2\x99\x9A\x3\x2\x2\x2\x9A\x9C\x3\x2\x2\x2\x9B\x87\x3\x2"+
+		"\x2\x2\x9B\x92\x3\x2\x2\x2\x9C\x11\x3\x2\x2\x2\x9D\xA1\a\f\x2\x2\x9E\x9F"+
+		"\a/\x2\x2\x9F\xA0\a\x30\x2\x2\xA0\xA2\x5*\x16\x2\xA1\x9E\x3\x2\x2\x2\xA2"+
+		"\xA3\x3\x2\x2\x2\xA3\xA1\x3\x2\x2\x2\xA3\xA4\x3\x2\x2\x2\xA4\x13\x3\x2"+
+		"\x2\x2\xA5\xA6\a\r\x2\x2\xA6\xA7\x5,\x17\x2\xA7\xAB\a\xE\x2\x2\xA8\xAA"+
+		"\x5\f\a\x2\xA9\xA8\x3\x2\x2\x2\xAA\xAD\x3\x2\x2\x2\xAB\xA9\x3\x2\x2\x2"+
+		"\xAB\xAC\x3\x2\x2\x2\xAC\xB1\x3\x2\x2\x2\xAD\xAB\x3\x2\x2\x2\xAE\xB0\x5"+
+		"\x16\f\x2\xAF\xAE\x3\x2\x2\x2\xB0\xB3\x3\x2\x2\x2\xB1\xAF\x3\x2\x2\x2"+
+		"\xB1\xB2\x3\x2\x2\x2\xB2\xB5\x3\x2\x2\x2\xB3\xB1\x3\x2\x2\x2\xB4\xB6\x5"+
+		"\x18\r\x2\xB5\xB4\x3\x2\x2\x2\xB5\xB6\x3\x2\x2\x2\xB6\xB7\x3\x2\x2\x2"+
+		"\xB7\xB8\a\xF\x2\x2\xB8\x15\x3\x2\x2\x2\xB9\xBA\a\x10\x2\x2\xBA\xBB\x5"+
+		",\x17\x2\xBB\xBC\a\xE\x2\x2\xBC\xBD\x5\n\x6\x2\xBD\x17\x3\x2\x2\x2\xBE"+
+		"\xBF\a\x11\x2\x2\xBF\xC0\x5\n\x6\x2\xC0\x19\x3\x2\x2\x2\xC1\xC2\a\x12"+
+		"\x2\x2\xC2\xC3\x5\n\x6\x2\xC3\xC4\a\x13\x2\x2\xC4\xC5\x5,\x17\x2\xC5\x1B"+
+		"\x3\x2\x2\x2\xC6\xC7\a\x14\x2\x2\xC7\xC8\x5,\x17\x2\xC8\xC9\a\x15\x2\x2"+
+		"\xC9\xCA\x5\n\x6\x2\xCA\xCB\a\x16\x2\x2\xCB\x1D\x3\x2\x2\x2\xCC\xCD\a"+
+		"\x17\x2\x2\xCD\xCE\a/\x2\x2\xCE\xCF\a\x18\x2\x2\xCF\xD0\a,\x2\x2\xD0\xD1"+
+		"\a\x19\x2\x2\xD1\xD2\a,\x2\x2\xD2\xD3\a\x1A\x2\x2\xD3\xD4\x5,\x17\x2\xD4"+
+		"\xD5\x5\n\x6\x2\xD5\xD6\a\x16\x2\x2\xD6\x1F\x3\x2\x2\x2\xD7\xD8\a\x1B"+
+		"\x2\x2\xD8\xDA\a/\x2\x2\xD9\xDB\x5\"\x12\x2\xDA\xD9\x3\x2\x2\x2\xDB\xDC"+
+		"\x3\x2\x2\x2\xDC\xDA\x3\x2\x2\x2\xDC\xDD\x3\x2\x2\x2\xDD\xE1\x3\x2\x2"+
+		"\x2\xDE\xE0\x5$\x13\x2\xDF\xDE\x3\x2\x2\x2\xE0\xE3\x3\x2\x2\x2\xE1\xDF"+
+		"\x3\x2\x2\x2\xE1\xE2\x3\x2\x2\x2\xE2\xE4\x3\x2\x2\x2\xE3\xE1\x3\x2\x2"+
+		"\x2\xE4\xE5\a\x1D\x2\x2\xE5!\x3\x2\x2\x2\xE6\xE7\a\x1C\x2\x2\xE7\xE8\x5"+
+		",\x17\x2\xE8\xE9\x5\n\x6\x2\xE9#\x3\x2\x2\x2\xEA\xEB\a\x1C\x2\x2\xEB\xEC"+
+		"\a\x11\x2\x2\xEC\xED\x5\n\x6\x2\xED%\x3\x2\x2\x2\xEE\xF3\x5*\x16\x2\xEF"+
+		"\xF0\a<\x2\x2\xF0\xF2\x5*\x16\x2\xF1\xEF\x3\x2\x2\x2\xF2\xF5\x3\x2\x2"+
+		"\x2\xF3\xF1\x3\x2\x2\x2\xF3\xF4\x3\x2\x2\x2\xF4\'\x3\x2\x2\x2\xF5\xF3"+
+		"\x3\x2\x2\x2\xF6\xF7\a/\x2\x2\xF7\xF8\a=\x2\x2\xF8\xF9\x5,\x17\x2\xF9"+
+		")\x3\x2\x2\x2\xFA\xFF\a,\x2\x2\xFB\xFF\a-\x2\x2\xFC\xFF\a.\x2\x2\xFD\xFF"+
+		"\a/\x2\x2\xFE\xFA\x3\x2\x2\x2\xFE\xFB\x3\x2\x2\x2\xFE\xFC\x3\x2\x2\x2"+
+		"\xFE\xFD\x3\x2\x2\x2\xFF+\x3\x2\x2\x2\x100\x101\b\x17\x1\x2\x101\x102"+
+		"\t\x2\x2\x2\x102\x10F\x5,\x17\n\x103\x104\a>\x2\x2\x104\x105\x5,\x17\x2"+
+		"\x105\x106\a?\x2\x2\x106\x10F\x3\x2\x2\x2\x107\x108\a/\x2\x2\x108\x10A"+
+		"\a>\x2\x2\x109\x10B\x5&\x14\x2\x10A\x109\x3\x2\x2\x2\x10A\x10B\x3\x2\x2"+
+		"\x2\x10B\x10C\x3\x2\x2\x2\x10C\x10F\a?\x2\x2\x10D\x10F\x5*\x16\x2\x10E"+
+		"\x100\x3\x2\x2\x2\x10E\x103\x3\x2\x2\x2\x10E\x107\x3\x2\x2\x2\x10E\x10D"+
+		"\x3\x2\x2\x2\x10F\x124\x3\x2\x2\x2\x110\x111\f\v\x2\x2\x111\x112\a:\x2"+
+		"\x2\x112\x123\x5,\x17\v\x113\x114\f\t\x2\x2\x114\x115\t\x3\x2\x2\x115"+
+		"\x123\x5,\x17\n\x116\x117\f\b\x2\x2\x117\x118\t\x4\x2\x2\x118\x123\x5"+
+		",\x17\t\x119\x11A\f\a\x2\x2\x11A\x11B\t\x5\x2\x2\x11B\x123\x5,\x17\b\x11C"+
+		"\x11D\f\x6\x2\x2\x11D\x11E\a)\x2\x2\x11E\x123\x5,\x17\a\x11F\x120\f\x5"+
+		"\x2\x2\x120\x121\a*\x2\x2\x121\x123\x5,\x17\x6\x122\x110\x3\x2\x2\x2\x122"+
+		"\x113\x3\x2\x2\x2\x122\x116\x3\x2\x2\x2\x122\x119\x3\x2\x2\x2\x122\x11C"+
+		"\x3\x2\x2\x2\x122\x11F\x3\x2\x2\x2\x123\x126\x3\x2\x2\x2\x124\x122\x3"+
+		"\x2\x2\x2\x124\x125\x3\x2\x2\x2\x125-\x3\x2\x2\x2\x126\x124\x3\x2\x2\x2"+
+		"\x127\x12D\a\x1F\x2\x2\x128\x12D\a \x2\x2\x129\x12D\a!\x2\x2\x12A\x12D"+
+		"\a\"\x2\x2\x12B\x12D\a\x1E\x2\x2\x12C\x127\x3\x2\x2\x2\x12C\x128\x3\x2"+
+		"\x2\x2\x12C\x129\x3\x2\x2\x2\x12C\x12A\x3\x2\x2\x2\x12C\x12B\x3\x2\x2"+
+		"\x2\x12D/\x3\x2\x2\x2\x12E\x133\a#\x2\x2\x12F\x133\a$\x2\x2\x130\x133"+
+		"\a%\x2\x2\x131\x133\a&\x2\x2\x132\x12E\x3\x2\x2\x2\x132\x12F\x3\x2\x2"+
+		"\x2\x132\x130\x3\x2\x2\x2\x132\x131\x3\x2\x2\x2\x133\x31\x3\x2\x2\x2\x134"+
+		"\x137\a\'\x2\x2\x135\x137\a(\x2\x2\x136\x134\x3\x2\x2\x2\x136\x135\x3"+
+		"\x2\x2\x2\x137\x33\x3\x2\x2\x2\x1F\x37\x39\x41LT_\x65oz\x81\x85\x8F\x99"+
+		"\x9B\xA3\xAB\xB1\xB5\xDC\xE1\xF3\xFE\x10A\x10E\x122\x124\x12C\x132\x136";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

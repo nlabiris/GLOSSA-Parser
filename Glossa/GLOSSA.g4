@@ -10,6 +10,12 @@ file : program (functiondefinition | proceduredefinition)*	#filestart
 program : PROGRAMMA IDENTIFIER declarations* ARXH statementlist TELOS_PROGRAMMATOS	#programstart
 		;
 
+functiondefinition : SYNARTHSH IDENTIFIER LPAREN functionarguments? RPAREN ':' type declarations* ARXH statementlist TELOS_SYNARTHSHS	#funcdef
+				   ;
+
+proceduredefinition : DIADIKASIA IDENTIFIER LPAREN functionarguments? RPAREN declarations* ARXH statementlist TELOS_DIADIKASIAS			#procdef
+					;
+
 statementlist : statement*	#stmtlist
 			  ;
 
@@ -28,17 +34,11 @@ declarations : variabledeclarations					#vardecl
 			 | constantdeclarations					#constdecl
 			 ;
 
-functiondefinition : SYNARTHSH IDENTIFIER functionarguments? ':' type statementlist TELOS_SYNARTHSHS	#funcdef1
-				   ;
-
-proceduredefinition : DIADIKASIA IDENTIFIER functionarguments? statementlist TELOS_DIADIKASIAS			#procdef1
-					;
-
 variabledeclarations : METABLHTES type ':' IDENTIFIER (','IDENTIFIER)*		#vardecl_alt1
 					 | METABLHTES (type ':' IDENTIFIER)+					#vardecl_alt2
 					 ;
 
-constantdeclarations : STATHERES (IDENTIFIER EQUALS expressionprimitives)+	#constdecl_alt1
+constantdeclarations : STATHERES (IDENTIFIER EQUALS expressionprimitives)+	#constdecl_alt
 					 ;
 
 ifcontrol : AN expression TOTE statement* elseif* else? TELOS_AN	#ifctrl
@@ -68,7 +68,7 @@ casescontrol : PERIPTOSI expression statementlist	#casectrl
 otherwisecontrol : PERIPTOSI ALLIOS statementlist	#otherwisectrl
 				 ;
 
-functionarguments : IDENTIFIER (COMMA IDENTIFIER)*	#funargs
+functionarguments : expressionprimitives (COMMA expressionprimitives)*	#funargs
 				  ;
 
 assignment : IDENTIFIER ASSIGNMENT expression	#assign
@@ -96,6 +96,7 @@ type : AKERAIES		#type_akeraies
 	 | PRAGMATIKES	#type_pragmatikes
 	 | XARAKTHRES	#type_xaraktires
 	 | LOGIKES		#type_logikes
+	 | AKERAIA		#t
 	 ;
 
 keyword : GRAPSE		#keyword_grapse
@@ -139,6 +140,9 @@ ME_BHMA				: 'ле_бгла';
 EPILEKSE			: 'епикене';
 PERIPTOSI			: 'пеяиптысг';
 TELOS_EPILOGON		: 'текос_епикоцым';
+
+AKERAIA				: 'айеяаиа';
+
 AKERAIES			: 'айеяаиес';
 PRAGMATIKES			: 'пяацлатийес';
 XARAKTHRES			: 'ваяайтгяес';

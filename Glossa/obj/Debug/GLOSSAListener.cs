@@ -108,6 +108,19 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitCasectrl([NotNull] GLOSSAParser.CasectrlContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>t</c>
+	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterT([NotNull] GLOSSAParser.TContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>t</c>
+	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitT([NotNull] GLOSSAParser.TContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>type_pragmatikes</c>
 	/// labeled alternative in <see cref="GLOSSAParser.type"/>.
 	/// </summary>
@@ -394,17 +407,17 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitVardecl_alt1([NotNull] GLOSSAParser.Vardecl_alt1Context context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>procdef1</c>
+	/// Enter a parse tree produced by the <c>procdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.proceduredefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterProcdef1([NotNull] GLOSSAParser.Procdef1Context context);
+	void EnterProcdef([NotNull] GLOSSAParser.ProcdefContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>procdef1</c>
+	/// Exit a parse tree produced by the <c>procdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.proceduredefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitProcdef1([NotNull] GLOSSAParser.Procdef1Context context);
+	void ExitProcdef([NotNull] GLOSSAParser.ProcdefContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>ifctrl</c>
@@ -602,30 +615,30 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitVardecl([NotNull] GLOSSAParser.VardeclContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>constdecl_alt1</c>
+	/// Enter a parse tree produced by the <c>constdecl_alt</c>
 	/// labeled alternative in <see cref="GLOSSAParser.constantdeclarations"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterConstdecl_alt1([NotNull] GLOSSAParser.Constdecl_alt1Context context);
+	void EnterConstdecl_alt([NotNull] GLOSSAParser.Constdecl_altContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>constdecl_alt1</c>
+	/// Exit a parse tree produced by the <c>constdecl_alt</c>
 	/// labeled alternative in <see cref="GLOSSAParser.constantdeclarations"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitConstdecl_alt1([NotNull] GLOSSAParser.Constdecl_alt1Context context);
+	void ExitConstdecl_alt([NotNull] GLOSSAParser.Constdecl_altContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>funcdef1</c>
+	/// Enter a parse tree produced by the <c>funcdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.functiondefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterFuncdef1([NotNull] GLOSSAParser.Funcdef1Context context);
+	void EnterFuncdef([NotNull] GLOSSAParser.FuncdefContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>funcdef1</c>
+	/// Exit a parse tree produced by the <c>funcdef</c>
 	/// labeled alternative in <see cref="GLOSSAParser.functiondefinition"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitFuncdef1([NotNull] GLOSSAParser.Funcdef1Context context);
+	void ExitFuncdef([NotNull] GLOSSAParser.FuncdefContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>expressionprimitives_string</c>
@@ -728,6 +741,28 @@ public interface IGLOSSAListener : IParseTreeListener {
 	void ExitProgram([NotNull] GLOSSAParser.ProgramContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.statementlist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -759,28 +794,6 @@ public interface IGLOSSAListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDeclarations([NotNull] GLOSSAParser.DeclarationsContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="GLOSSAParser.functiondefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitFunctiondefinition([NotNull] GLOSSAParser.FunctiondefinitionContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="GLOSSAParser.proceduredefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitProceduredefinition([NotNull] GLOSSAParser.ProceduredefinitionContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GLOSSAParser.variabledeclarations"/>.

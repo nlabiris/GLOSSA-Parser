@@ -212,7 +212,7 @@ namespace Glossa {
             m_previousRule = "constdecl_" + m_serialNumber;
         }
 
-        public override void EnterFuncdef1(GLOSSAParser.Funcdef1Context context) {
+        public override void EnterFuncdef(GLOSSAParser.FuncdefContext context) {
             m_serialNumber++;
             // Print edge from the parent to the child
             if (m_ruleStack.Count != 0) {
@@ -225,7 +225,7 @@ namespace Glossa {
             m_previousRule = "funcdef1_" + m_serialNumber;
         }
         
-        public override void EnterProcdef1(GLOSSAParser.Procdef1Context context) {
+        public override void EnterProcdef(GLOSSAParser.ProcdefContext context) {
             m_serialNumber++;
             // Print edge from the parent to the child
             if (m_ruleStack.Count != 0) {
@@ -264,7 +264,7 @@ namespace Glossa {
             m_previousRule = "vardecl_alt2_" + m_serialNumber;
         }
 
-        public override void EnterConstdecl_alt1(GLOSSAParser.Constdecl_alt1Context context) {
+        public override void EnterConstdecl_alt(GLOSSAParser.Constdecl_altContext context) {
             m_serialNumber++;
             // Print edge from the parent to the child
             if (m_ruleStack.Count != 0) {
@@ -1040,78 +1040,6 @@ namespace Glossa {
                     m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "RANCHOR_s" + m_serialNumber);
                 }
             }
-
-            if (node.Symbol.Type == GLOSSAParser.A_M) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "A_M_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.A_T) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "A_T_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.E) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "E_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.EF) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "EF_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.HM) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "HM_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.LOG) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "LOG_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.SYN) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "SYN_s" + m_serialNumber);
-                }
-            }
-
-            if (node.Symbol.Type == GLOSSAParser.T_R) {
-                m_serialNumber++;
-                if (m_ruleStack.Count != 0) {
-                    m_previousRule = m_ruleStack.Peek();
-                    m_writer.WriteLine("node [fillcolor=palegreen];");
-                    m_writer.WriteLine("\"{0}\" -> \"{1}\";", m_previousRule, "T_R_s" + m_serialNumber);
-                }
-            }
         }
 
 
@@ -1187,12 +1115,12 @@ namespace Glossa {
             m_previousRule = m_ruleStack.Peek();
         }
 
-        public override void ExitFuncdef1(GLOSSAParser.Funcdef1Context context) {
+        public override void ExitFuncdef(GLOSSAParser.FuncdefContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
         
-        public override void ExitProcdef1(GLOSSAParser.Procdef1Context context) {
+        public override void ExitProcdef(GLOSSAParser.ProcdefContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
@@ -1207,7 +1135,7 @@ namespace Glossa {
             m_previousRule = m_ruleStack.Peek();
         }
 
-        public override void ExitConstdecl_alt1(GLOSSAParser.Constdecl_alt1Context context) {
+        public override void ExitConstdecl_alt(GLOSSAParser.Constdecl_altContext context) {
             m_previousRule = m_ruleStack.Pop();
             m_previousRule = m_ruleStack.Peek();
         }
